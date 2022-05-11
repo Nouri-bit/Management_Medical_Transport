@@ -47,7 +47,14 @@ public class PatientServlet extends HttpServlet {
 		patient.setAddresse(Addresse);
 		patient.setIdChauffeur(idChauffeur);
 		patient.setNSS(NSS);
-		doGet(request, response);
+		try {
+			p.ajoutPatient(patient);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//doGet(request, response)
+          response.sendRedirect("the page jsp ");
 	}
 
 }
