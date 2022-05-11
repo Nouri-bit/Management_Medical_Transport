@@ -54,7 +54,7 @@ public class PatientServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		//doGet(request, response)
-          response.sendRedirect("the page jsp ");
+          response.sendRedirect("2CS_PROJECT/WEB-INF/views/AjoutPatient.jsp ");
 	}
 
 }
