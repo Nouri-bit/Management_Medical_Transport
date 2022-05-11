@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form  action="<%= request.getContextPath() %>/AjoutPatient" method=post>
 
-</form>
 </body>
 </html>
