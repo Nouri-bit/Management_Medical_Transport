@@ -1,6 +1,8 @@
 package net.model;
-
+//import javax.persistence.Column;
+//@Table(name="Patient")
 public class Patient {
+    
 	private int NSS;
 	private String Nom;
 	private String Prenom;
@@ -10,25 +12,25 @@ public class Patient {
 		return NSS;
 	}
 	public void setNSS(int nSS) {
-		NSS = nSS;
+		this.NSS = nSS;
 	}
 	public String getNom() {
 		return Nom;
 	}
-	public void setNom(String nom) {
-		Nom = nom;
+	public void setNom(String Nom) {
+		 this.Nom=Nom ;
 	}
 	public String getPrenom() {
 		return Prenom;
 	}
 	public void setPrenom(String prenom) {
-		Prenom = prenom;
+		this.Prenom = prenom;
 	}
 	public String getAddresse() {
 		return Addresse;
 	}
 	public void setAddresse(String Addresse) {
-		Addresse = Addresse;
+		this.Addresse = Addresse;
 	}
 	public int getIdChauffeur() {
 		return idChauffeur;

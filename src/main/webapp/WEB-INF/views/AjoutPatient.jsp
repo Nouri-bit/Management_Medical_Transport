@@ -4,11 +4,34 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Ajouter patient</title>
 </head>
 <body>
-<form  action="<%= request.getContextPath() %>/AjoutPatient" method=post>
-
-</form>
+<h1>Ajouter un patient</h1>
+<form action="<%= request.getContextPath() %>/AjoutPatient" method="post">
+			<table style="with: 50%">
+				<tr>
+					<td>Nom</td>
+					<td><input type="text" name="nom" /></td>
+				</tr>
+				<tr>
+					<td>Prénom</td>
+					<td><input type="text" name="prenom" /></td>
+				</tr>
+				<tr>
+					<td>NSS</td>
+					<td><input type="text" name="nss" /></td>
+				</tr>
+					
+				<tr>
+					<td>Address</td>
+					<td><input type="text" name="addresse" /></td>
+				</tr>
+				<tr>
+					<td>Id chauffeur </td>
+					<td><input type="text" name="idchauffeur" /></td>
+				</tr>
+				</table>
+			<input type="submit" value="Submit" /></form>
 </body>
 </html>

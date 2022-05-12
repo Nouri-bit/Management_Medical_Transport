@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import net.dao.Patientdao;
 import net.model.Patient;
 
@@ -18,19 +17,23 @@ import net.model.Patient;
 @WebServlet("/AjoutPatient")
 public class PatientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	//private Patientdao p; 
 
     /**
      * Default constructor. 
      */
-    public PatientServlet() {
+	
+    /*public PatientServlet() {
         // TODO Auto-generated constructor stub
-    }
-    Patientdao p = new Patientdao();
+    }*/
+
+    	Patientdao p = new Patientdao();
+    
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/AjoutPatient.jsp");
 		dispatcher.forward(request, response);
@@ -41,11 +44,12 @@ public class PatientServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String Nom=request.getParameter("Nom");
-		String Prenom=request.getParameter("Prenom");
-		String Addresse=request.getParameter("Addresse");
-		int idChauffeur=Integer.parseInt(request.getParameter("idChauffeur"));
-	    int NSS= Integer.parseInt(request.getParameter("NSS"));
+		
+		String Nom=request.getParameter("nom");
+		String Prenom=request.getParameter("prenom");
+		String Addresse=request.getParameter("addresse");
+		int idChauffeur=Integer.parseInt(request.getParameter("idchauffeur"));
+		int NSS= Integer.parseInt(request.getParameter("nss"));
 		Patient patient=new Patient();
 		patient.setNom(Nom);
 		patient.setPrenom(Prenom);
@@ -55,13 +59,13 @@ public class PatientServlet extends HttpServlet {
 		try {
 			p.ajoutPatient(patient);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//doGet(request, response)
-          //response.sendRedirect("the page jsp ");
-          RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/Ajoutpatientdetails.jsp");
-  		  dispatcher.forward(request, response);
-	}
+		
+         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/Ajoutpatientdetails.jsp");
+  		 dispatcher.forward(request, response);
+  		  //response.sendRedirect("/WEB-INF/views/Ajoutpatientdetails.jsp");
+  		  
+}
 
 }
