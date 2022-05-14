@@ -1,6 +1,7 @@
 package net.controller;
 
 import java.io.IOException;
+import java.time.DayOfWeek;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import net.dao.Patientdao;
 import net.model.Patient;
+import net.model.Seance;
 
 /**
  * Servlet implementation class PatientServlet
@@ -48,16 +50,29 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		String Nom=request.getParameter("nom");
 		String Prenom=request.getParameter("prenom");
 		String Addresse=request.getParameter("addresse");
-		int idChauffeur=Integer.parseInt(request.getParameter("idchauffeur"));
+		//int idChauffeur=Integer.parseInt(request.getParameter("idchauffeur"));
 		int NSS= Integer.parseInt(request.getParameter("nss"));
-		Patient patient=new Patient();
+		int type= Integer.parseInt(request.getParameter("type"));
+		int tranche= Integer.parseInt(request.getParameter("tranche"));
+		Boolean attente=Boolean.parseBoolean(request.getParameter("attente")); 
+		String titre=request.getParameter("titre");
+		String jour=request.getParameter("jour");
+		Patient patient=new Patient();	
 		patient.setNom(Nom);
 		patient.setPrenom(Prenom);
 		patient.setAddresse(Addresse);
-		patient.setIdChauffeur(idChauffeur);
+		//patient.setIdChauffeur(idChauffeur);
 		patient.setNSS(NSS);
+		Seance seance = new Seance();
+		seance.settitre(titre);
+		seance.setType(type);
+		seance.setAttente(attente);
+		seance.setTranche(tranche);
+		seance.setJour(jour);
+		
+		
 		try {
-			p.ajoutPatient(patient);
+			p.ajoutPatient(patient, seance);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

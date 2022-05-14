@@ -1,16 +1,24 @@
 package net.model;
 
+
 public class Seance {
-private String text;
+private String titre;
 private int type;
 private int tranche; 
 private boolean attente;
 private int idpatient;
-public String getText() {
-	return text;
+private String jour;
+public String getJour() {
+	return jour;
 }
-public void setText(String text) {
-	this.text = text;
+public void setJour(String jour) {
+	this.jour = jour;
+}
+public String gettitre() {
+	return titre;
+}
+public void settitre(String titre) {
+	this.titre = titre;
 }
 public int getType() {
 	return type;

@@ -6,13 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.*;
 import org.postgresql.*;
 import net.model.Patient;
+import net.model.Seance;
 public class Patientdao {
 
-	public int ajoutPatient(Patient patient) throws ClassNotFoundException{
+	public int [] ajoutPatient(Patient patient, Seance seance) throws ClassNotFoundException{
 		String sql= "INSERT INTO public.patient(\r\n"
-				+ "	nss, nom, prenom, addresse, idchauffeur)\r\n"
-				+ "	VALUES (?, ?, ?, ?, ?);";
-		int i=0;
+				+ "	nss, nom, prenom, addresse)\r\n"
+				+ "	VALUES (?, ?, ?, ?);";
+		String sql2= "INSERT INTO public.seance(\r\n"
+				+ "	titre, type, attente, idpatient, tranche, jour)\r\n"
+				+ "	VALUES ( ?, ?, ?, ?, ?, ?);";
+	int [] tab = {0,0};
 		Class.forName("org.postgresql.Driver");
 		try{
 			Connection connection= DriverManager.getConnection("jdbc:postgresql://localhost:5433/2cs_project_18","postgres", "20001999");
@@ -20,17 +24,26 @@ public class Patientdao {
 			statement.setString(2,patient.getNom());
 			statement.setString(3,patient.getPrenom());
 			statement.setString(4,patient.getAddresse());
-			statement.setInt(5,patient.getIdChauffeur());
+			//statement.setInt(5,patient.getIdChauffeur());
 			statement.setInt(1,patient.getNSS());
 			System.out.println(statement);
-			i=statement.executeUpdate();
+			tab[0]=statement.executeUpdate();
+			PreparedStatement statement2=connection.prepareStatement(sql2);
+			statement2.setString(1, "Patient_"+patient.getNom()+"_"+seance.gettitre());
+			statement2.setInt(2,seance.getType());
+			statement2.setBoolean(3, seance.isAttente());
+			statement2.setInt(5,seance.getTranche());
+			statement2.setString(6,seance.getJour());
+			statement2.setInt(4,patient.getNSS());
+			System.out.println(statement2);
+			tab[1]=statement2.executeUpdate();
 			connection.close();
 		}	
 		catch(Exception e){
 			e.printStackTrace();
 		};
 		
-		return i;
+		return tab;
 	}
 	private void printSQLException(SQLException ex) {
         for (Throwable e: ex) {
