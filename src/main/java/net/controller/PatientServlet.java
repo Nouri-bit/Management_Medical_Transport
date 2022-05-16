@@ -1,7 +1,6 @@
 package net.controller;
 
 import java.io.IOException;
-import java.time.DayOfWeek;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
