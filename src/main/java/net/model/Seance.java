@@ -7,11 +7,19 @@ private int type;
 private int tranche; 
 private boolean attente;
 private int idpatient;
-private String jour;
-public String getJour() {
+private int jour;
+private float kmreel;
+
+public float getKmreel() {
+	return kmreel;
+}
+public void setKmreel(float kmreel) {
+	this.kmreel = kmreel;
+}
+public int getJour() {
 	return jour;
 }
-public void setJour(String jour) {
+public void setJour(int jour) {
 	this.jour = jour;
 }
 public String gettitre() {

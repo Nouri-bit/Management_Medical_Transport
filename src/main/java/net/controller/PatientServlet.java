@@ -55,7 +55,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		int tranche= Integer.parseInt(request.getParameter("tranche"));
 		Boolean attente=Boolean.parseBoolean(request.getParameter("attente")); 
 		String titre=request.getParameter("titre");
-		String jour=request.getParameter("jour");
+		int jour=Integer.parseInt(request.getParameter("jour"));
 		Patient patient=new Patient();	
 		patient.setNom(Nom);
 		patient.setPrenom(Prenom);

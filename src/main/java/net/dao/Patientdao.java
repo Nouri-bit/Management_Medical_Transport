@@ -33,7 +33,7 @@ public class Patientdao {
 			statement2.setInt(2,seance.getType());
 			statement2.setBoolean(3, seance.isAttente());
 			statement2.setInt(5,seance.getTranche());
-			statement2.setString(6,seance.getJour());
+			statement2.setInt(6,seance.getJour());
 			statement2.setInt(4,patient.getNSS());
 			System.out.println(statement2);
 			tab[1]=statement2.executeUpdate();
