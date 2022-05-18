@@ -32,14 +32,24 @@
 					<td>Id chauffeur </td>
 					<td><input type="text" name="idchauffeur" /></td>
 				</tr>-->
+				</table>
+				<table> 
 				<tr>
-					<td>Jour de la seance  </td>
-					<td><input type="text"  name="jour"/></td>
-				</tr>
-				<tr>
-					<td>titre  </td>
-					<td><input type="text"  name="titre" /></td>
-				</tr>
+				<td><input type="checkbox"  id='samedi' value="samedi" name="jour" /> <label 	>samedi</label></td>
+				<td><input type="checkbox" id='dimanche' value="dimanche" name="jour" /> <label for="dimanche">dimanche</label></td>
+				 <td><input type="checkbox" id='lundi' value="Lundi" name="jour" /> <label for="Lundi">Lundi</label></td>
+				 </tr>
+				 <tr>
+				<td><input type="checkbox" id='Mardi' value="Mardi" name="jour" /> <label for="Mardi">Mardi</label></td>
+				<td><input type="checkbox" id='mercredi' value="mercredi" name="jour" /> <label for="mercredi">Mercredi</label></td>
+				<td><input type="checkbox" id='Jeudi' value="Jeudi" name="jour" /> <label for="Jeudi">Jeudi</label></td>
+				 </tr>
+				 <tr>
+				<td><input type="checkbox" id='Vendredi' value="Vendredi" name="jour" /> <label for="Vendredi">Vendredi</label></td>
+				 </tr>
+				</table>
+				<table>
+			
 				<tr>
 					<td>type </td>
 					<td><input type="text" name="type" /></td>
@@ -49,34 +59,12 @@
 					<td><input type="text" name="attente" /></td>
 				</tr>
 				</table>
-				
-								<br>
-				<h3>Jours de la semaine</h3>
-				<table id ="table_jours"> 
+				<table>
 				<tr>
-				<td><input type="checkbox" name="samedi" /> <label for="samedi">samedi</label></td>
-				<td><input type="checkbox" name="dimanche" /> <label for="dimanche">dimanche</label></td>
-				 <td><input type="checkbox" name="Lundi" /> <label for="Lundi">Lundi</label></td>
-				 </tr>
-				 <tr>
-				<td><input type="checkbox" name="Mardi" /> <label for="Mardi">Mardi</label></td>
-				<td><input type="checkbox" name="mercredi" /> <label for="mercredi">Mercredi</label></td>
-				<td><input type="checkbox" name="Jeudi" /> <label for="Jeudi">Jeudi</label></td>
-				 </tr>
-				 <tr>
-				<td><input type="checkbox" name="Vendredi" /> <label for="Vendredi">Vendredi</label></td>
-				 </tr>
-				</table>
-				<br>
-				<h3>Tranche</h3>
-				<table id ="table_tranche"> 
-				<tr>
-				<td><input type="checkbox" name="tr1" /> <label for="tr1">Tranche 1</label></td>
-				<td><input type="checkbox" name="tr2" /> <label for="tr2">Tranche 2</label></td>
-				 <td><input type="checkbox" name="tr3" /> <label for="tr3">Tranche 3</label></td>
+				<td><input type="text" name="tranche" /> <label for="tr1">Tranche 1</label></td>
 				 </tr>
 				
-				</table>
+		</table> 
 				
 			<input type="submit" value="Submit" /></form>
 </body>

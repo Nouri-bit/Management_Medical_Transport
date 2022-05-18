@@ -1,6 +1,8 @@
 package net.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -54,24 +56,34 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		int type= Integer.parseInt(request.getParameter("type"));
 		int tranche= Integer.parseInt(request.getParameter("tranche"));
 		Boolean attente=Boolean.parseBoolean(request.getParameter("attente")); 
-		String titre=request.getParameter("titre");
-		int jour=Integer.parseInt(request.getParameter("jour"));
+		//String titre=request.getParameter("titre");
+		String [] jour=request.getParameterValues("jour");
+		
+		
 		Patient patient=new Patient();	
 		patient.setNom(Nom);
 		patient.setPrenom(Prenom);
 		patient.setAddresse(Addresse);
 		//patient.setIdChauffeur(idChauffeur);
 		patient.setNSS(NSS);
-		Seance seance = new Seance();
-		seance.settitre(titre);
-		seance.setType(type);
-		seance.setAttente(attente);
-		seance.setTranche(tranche);
-		seance.setJour(jour);
-		
+		List <Seance> sseance = new ArrayList<Seance>(); 
+		int i = 0;
+		//for (int i = 0; i<jour.length; i++) {
+			while(   i< 4 && i<jour.length) {
+			Seance seance = new Seance();
+			//seance.settitre(titre);
+			seance.setType(type);
+			seance.setAttente(attente);
+			seance.setTranche(tranche);
+			seance.setJour(jour[i]);
+			sseance.add(seance);
+			//seance=null;
+			i++;
+		}
+		//sseance.add(seance);
 		
 		try {
-			p.ajoutPatient(patient, seance);
+			p.ajoutPatient(patient, sseance);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
