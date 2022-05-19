@@ -5,6 +5,32 @@
 <meta charset="ISO-8859-1">
 <title>Ajouter patient</title>
 <link rel="stylesheet" href="style.css">
+
+<script language="JavaScript">
+            var nbCheck = 0;
+             
+            function isChecked(elmt)
+            {
+                if( elmt.checked )
+                {return true; }
+                else
+                {return false;}
+            }
+             
+            function clickCheck(elmt)
+            {
+                if( (nbCheck < 3) || (isChecked(elmt) == false) )
+                {
+                    if( isChecked(elmt) == true )
+                    { nbCheck += 1;}
+                    else
+                    {nbCheck -= 1;}
+                }
+                else
+                { elmt.checked = ''; }
+            }
+        </script>
+</head>
 </head>
 <body>
 <h1>Ajouter un patient</h1>
@@ -35,17 +61,17 @@
 				<h3>Jours de la semaine</h3>
 				<table id ="table_jours"> 
 				<tr>
-				<td><input type="checkbox" name="samedi" /> <label for="samedi">samedi</label></td>
-				<td><input type="checkbox" name="dimanche" /> <label for="dimanche">dimanche</label></td>
-				 <td><input type="checkbox" name="Lundi" /> <label for="Lundi">Lundi</label></td>
+				<td><input type="checkbox" name="jour" onclick="clickCheck(this);" /> <label for="samedi">samedi</label></td>
+				<td><input type="checkbox" name="jour" onclick="clickCheck(this);"/> <label for="dimanche">dimanche</label></td>
+				 <td><input type="checkbox" name="jour" onclick="clickCheck(this);"/> <label for="Lundi">Lundi</label></td>
 				 </tr>
 				 <tr>
-				<td><input type="checkbox" name="Mardi" /> <label for="Mardi">Mardi</label></td>
-				<td><input type="checkbox" name="mercredi" /> <label for="mercredi">Mercredi</label></td>
-				<td><input type="checkbox" name="Jeudi" /> <label for="Jeudi">Jeudi</label></td>
+				<td><input type="checkbox" name="jour" onclick="clickCheck(this);"/> <label for="Mardi">Mardi</label></td>
+				<td><input type="checkbox" name="jour" onclick="clickCheck(this);"  /> <label for="mercredi">Mercredi</label></td>
+				<td><input type="checkbox" name="jour" onclick="clickCheck(this);"  /> <label for="Jeudi">Jeudi</label></td>
 				 </tr>
 				 <tr>
-				<td><input type="checkbox" name="Vendredi" /> <label for="Vendredi">Vendredi</label></td>
+				<td><input type="checkbox" name="jour" onclick="clickCheck(this);"  /> <label for="Vendredi">Vendredi</label></td>
 				 </tr>
 				</table>
 				<br>
