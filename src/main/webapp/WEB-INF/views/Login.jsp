@@ -24,12 +24,12 @@
                <li><a href='#'>Remboursements</a></li>
             </ul> 
             <div class="logo_cnas">
-                <a href=""><img src="images/logo_CNAS.png" width="80px" height="60px"/></a>
+                <a href=""><img src="./logo_CNAS.png" width="80px" height="60px"/></a>
             </div>
         </nav>
     </div>
     <div class="form">
-        <form action="<%= request.getContextPath() %>/Login" method="post"> 
+        <form action="<%= request.getContextPath() %>/Login_servlet" method="post"> 
             <h1>Se connecter</h1>
             <div class="inputs">
               <p class="input_span"><span>Numéro de sécurité social</span></p>
