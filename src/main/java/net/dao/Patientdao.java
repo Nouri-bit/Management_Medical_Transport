@@ -18,8 +18,10 @@ public class Patientdao {
 				+ "	nss, nom, prenom, addresse)\r\n"
 				+ "	VALUES (?, ?, ?, ?);";
 		String sql2= "INSERT INTO public.seance(\r\n"
-				+ "	titre, type, attente, idpatient, tranche, jour)\r\n"
-				+ "	VALUES ( ?, ?, ?, ?, ?, ?);";
+				+ "	titre, type, attente, idpatient, tranche, jour, idchauffeur)\r\n"
+				+ "	VALUES ( ?, ?, ?, ?, ?, ?, ?);";
+		
+		
 	int [] tab = {0,0,0,0,0,0,0,0};
 		Class.forName("org.postgresql.Driver");
 		try{
@@ -28,33 +30,77 @@ public class Patientdao {
 			statement.setString(2,patient.getNom());
 			statement.setString(3,patient.getPrenom());
 			statement.setString(4,patient.getAddresse());
-			//statement.setInt(5,patient.getIdChauffeur());
 			statement.setInt(1,patient.getNSS());
 			System.out.println(statement);
 			tab[0]=statement.executeUpdate();
-			int i = 0;
-			//for (int i = 0; i <= ((seance.size())+1); i++) {
+			int i = 1;
+			
 		
-			for(Seance S : seance) {
-			    //  System.out.println(seance.get(i));
-				//Seance S= new Seance();
-				  // S= seance.get(i);
-					PreparedStatement statement2=connection.prepareStatement(sql2);
+			for(Seance Sa : seance) {
+				    PreparedStatement statement2=connection.prepareStatement(sql2);
 					statement2.setString(1, " Le Patient_"+patient.getNom()+"_"+patient.getPrenom()+"_"+patient.getNSS());
-					statement2.setInt(2,S.getType());
-					statement2.setBoolean(3, S.isAttente());
-					statement2.setInt(5,S.getTranche());
-					statement2.setString(6,S.getJour());
+					statement2.setInt(2,Sa.getType());
+					statement2.setBoolean(3, Sa.isAttente());
+					statement2.setInt(5,Sa.getTranche());
+					statement2.setString(6,Sa.getJour());
 					statement2.setInt(4,patient.getNSS());
+					//Statement statementt2=connection.createStatement();
+					String sql3= "SELECT j, tr, ty, numero FROM\r\n"
+							+ "(SELECT ch.nss numero, count(*) compte, s.tranche tr, s.jour j, s.type ty \r\n"
+							+ "	FROM public.\"chauffeur \" ch, public.\"seance\" s , public.\"patient\" p \r\n"
+							+ "	where s.jour=? and s.tranche =? and s.type=?  and ch.nss= s.idchauffeur and p.nss= s.idpatient \r\n"
+							+ "	group by s.jour , s.tranche , ch.nss, s.type\r\n"
+							+ "    having count(*) <2\r\n"
+							+ "	order by count(*) , numero\r\n"
+							+ ") resultat\r\n"
+							+ "FETCH FIRST 1 ROWS ONLY	\r\n"
+							+ "	;"; 
+					String sql4="SELECT nss numero FROM public.\"chauffeur \"\r\n"
+							+ "				WHERE  type=? and nss not in \r\n"
+							+ "				(SELECT numero FROM\r\n"
+							+ "				(SELECT ch.nss numero, count(*) compte, s.tranche tr, s.jour j \r\n"
+							+ "				FROM public.\"chauffeur \" ch, public.\"seance\" s , public.\"patient\" p\r\n"
+							+ "				where s.jour=? and s.tranche =? and ch.nss= s.idchauffeur and p.nss= s.idpatient \r\n"
+							+ "				group by s.jour , s.tranche , ch.nss\r\n"
+							+ "				order by count(*) , numero\r\n"
+							+ "				)resultat\r\n"
+							+ "				) \r\n"
+							+ "				FETCH FIRST 1 ROWS ONLY	\r\n"
+							+ "					;";
+					
+					PreparedStatement preparedStatement1 = connection.prepareStatement(sql3);
+					PreparedStatement preparedStatement2 = connection.prepareStatement(sql4);
+					preparedStatement1.setString(1, Sa.getJour());
+					preparedStatement1.setInt(2, Sa.getTranche());
+					preparedStatement1.setInt(3, Sa.getType());
+					//System.out.println(sql3);
+					preparedStatement2.setString(2, Sa.getJour());
+					preparedStatement2.setInt(3, Sa.getTranche());
+					preparedStatement2.setInt(1, Sa.getType());
+					//System.out.println(sql4);
+					ResultSet rs = preparedStatement1 .executeQuery();
+					ResultSet rs2 = preparedStatement2.executeQuery();
+					if (rs2.next()){
+						statement2.setInt(7, rs2.getInt("numero"));
+						tab[i]=statement2.executeUpdate();
+					}
+					
+					else if(rs.next()) {
+						statement2.setInt(7,rs.getInt("numero"));
+						tab[i]=statement2.executeUpdate();
+					}
+					else {
+						System.out.println("Le système est complet !! pas de chauffeurs suffisants pour ces patients ")		;		}
+					
 					System.out.println(statement2);
-					tab[i]=statement2.executeUpdate();
+					
 					i++;
-					S=null;
+					Sa=null;
 					statement2=null;
 				
 			    }
 			
-			//System.out.println(statement2);
+			
 			
 			connection.close();
 		}	

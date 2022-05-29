@@ -68,7 +68,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		List <Seance> sseance = new ArrayList<Seance>(); 
 		int i = 0;
 		//for (int i = 0; i<jour.length; i++) {
-			while(   i< 4 && i<jour.length) {
+			while(i< 4 && i<jour.length) {
 			Seance seance = new Seance();
 			//seance.settitre(titre);
 			seance.setType(type);

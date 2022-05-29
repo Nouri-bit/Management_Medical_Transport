@@ -7,7 +7,7 @@ public class Patient {
 	private String Nom;
 	private String Prenom;
 	private String Addresse;
-	private int idChauffeur;
+	//private int idChauffeur;
 	public int getNSS() {
 		return NSS;
 	}
@@ -31,12 +31,6 @@ public class Patient {
 	}
 	public void setAddresse(String Addresse) {
 		this.Addresse = Addresse;
-	}
-	public int getIdChauffeur() {
-		return idChauffeur;
-	}
-	public void setIdChauffeur(int idChauffeur) {
-		this.idChauffeur = idChauffeur;
 	}
 	
 

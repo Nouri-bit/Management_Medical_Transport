@@ -9,7 +9,13 @@ private boolean attente;
 private int idpatient;
 private String  jour;
 private float kmreel;
-
+private int idChauffeur;
+public int getIdChauffeur() {
+	return idChauffeur;
+}
+public void setIdChauffeur(int idChauffeur) {
+	this.idChauffeur = idChauffeur;
+}
 public float getKmreel() {
 	return kmreel;
 }
