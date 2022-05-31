@@ -51,7 +51,7 @@ public class Patientdao {
 					i++;
 					S=null;
 					statement2=null;
-				
+					
 			    }
 			
 			//System.out.println(statement2);
