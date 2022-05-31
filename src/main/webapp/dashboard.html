@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+<style>
+body{
+    background-color:#6EAFC9ff; 
+    margin: auto;
+    position: relative;
+    font-family: Roboto, Courier, monospace;
+    color:#0064ACff;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+    
+}
+
+
+
+/* Clear floats after the columns */
+
+.row{
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 3fr  2fr;
+  
+  height: 800px;
+}
+.col_left{
+  
+  display: grid;
+  gap: 20px;
+  grid-template-rows: 3fr 7fr;
+}
+.col_side{
+  display: grid;
+  gap: 20px;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.topboxes{
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr  1fr 1fr;
+  height: 30%;
+  margin: 10px;
+  margin-top: 40px;
+  padding: 5px;
+  border-radius: 50px;
+}
+.topbox{
+  background-color:aliceblue;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -1px 2px 4px 1px #0064ACff;
+}
+.icon{
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+}
+#graph{
+  padding: 10px;
+  margin: 10px;
+  margin-top: 0px;
+  border-radius: 50px;
+  background-color: aliceblue;
+  text-align: center;
+  box-shadow: -1px 2px 4px 1px #0064ACff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.sidebox{
+  background-color: aliceblue;
+  padding: 10px;
+  margin: 40px;
+  margin-top: 5px;
+  border-radius: 10px;
+  box-shadow: -1px 2px 4px 1px #0064ACff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+<title>home</title>
+</head>
+<body>
+  <div class="row">
+  <div class="col_left" >
+    <div class="topboxes">
+      <div class="topbox" >
+        <img class="icon" src="notif.png" alt="icon">
+        <h4 id="nb_pec">1</h4>
+        Prise en charge
+      </div>
+      <div class="topbox" >
+        <img class="icon" src="notif.png" alt="icon">
+        <h4 id="nb_reclam">15</h4>
+        reclamations
+      </div>
+      <div class="topbox">
+        <img class="icon" src="notif.png" alt="icon">
+        <h4 id="nb_notif">2</h4>
+        notifications
+      </div>
+    </div>
+    <div id="graph">
+   
+          <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+
+          <script>
+            var xValues = ["jan","fev","mar","avr","mai","jun","jul","aout","spt","oct","nov","des"];
+            
+            new Chart("myChart", {
+              type: "line",
+              data: {
+                labels: xValues,
+                datasets: [{ 
+                  data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+                  borderColor: "red",
+                  fill: false
+                }, { 
+                  data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+                  borderColor: "green",
+                  fill: false
+                }, { 
+                  data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+                  borderColor: "blue",
+                  fill: false
+                }]
+              },
+              options: {
+                title: {
+                display: true,
+                text: "Rembourcement"
+                },
+                legend: {display: false}
+              }
+            });
+            </script>
+    </div>
+
+  </div>
+  <div class="col_side">
+    <div class="sidebox" >
+      <h2 id="rec_mois" >12</h2>
+      
+          <canvas id="recChart" style="width:100%;max-width:600px"></canvas>
+
+          <script>
+          var xValues = ["Italy", "France"];
+          var yValues = [55, 49];
+          var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145"
+          ];
+
+          new Chart("recChart", {
+            type: "doughnut",
+            data: {
+              labels: xValues,
+              datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+              }]
+            },
+            options: {
+              title: {
+                display: true,
+                text: "Reclamations"
+              }
+            }
+          });
+          </script>
+
+    </div>
+    <div class="sidebox">
+     
+        <canvas id="pecChart" style="width:100%;max-width:600px"></canvas>
+
+        <script>
+        var xValues = ["validées", "non validées"];
+        var yValues = [55, 49];
+        var barColors = [
+          "#b91d47",
+          "#00aba9"
+        ];
+
+        new Chart("pecChart", {
+          type: "doughnut",
+          data: {
+            labels: xValues,
+            datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: "Les prises en charge du mois"
+            }
+          }
+        });
+        </script>
+
+            </div>
+
+    <div class="sidebox">
+      <canvas id="demChart" style="width:100%;max-width:600px"></canvas>
+      <script>
+      var xValues = ["scannées", "non scannées"];
+      var yValues = [0, 10];
+      var barColors = [
+        "#b91d47",
+        "#00aba9"
+      ];
+
+      new Chart("demChart", {
+        type: "doughnut",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Les prises en charge du mois"
+          }
+        }
+      });
+      </script>
+
+          </div>
+    
+  </div>
+
+
+</body>
