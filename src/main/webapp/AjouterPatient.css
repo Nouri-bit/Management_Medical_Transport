@@ -1,0 +1,163 @@
+td{
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.form{
+    width: fit-content;
+	background-color: white;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+    padding: 50px;
+    box-shadow:#0064ACff;
+    box-shadow: 10px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: -2px 2px 5px 2px #0064ACff;
+
+}
+
+.submit{
+    background-color: #0064ACff;
+    color:white;
+    padding: 5px;
+    border-color: #0064ACff;
+}
+
+
+/*navbar css*/
+body{
+    background-color:#6EAFC9;
+    margin: 0;
+}
+.toggle {
+  font-size: 20px;
+  color: #0064AC;
+  float: left;
+  line-height: 60px;
+  margin-left: 3%;
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+  
+}
+.topNav{
+background: #ffffff;
+height: 60px;
+width: 100%;
+position: relative;
+}
+.topNav ul{
+    z-index: -1;
+    margin-top:-15px;
+    position: fixed;
+    top: -400px;
+    right: 0;
+    left: 0;
+    width:200px;
+    background: #ffffff;
+    display: inline-block;
+    transition: top .4s;
+    margin-left: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.topNav ul.show{
+    top: 60px;
+  }
+.topNav .socialtop{
+    float: right;
+    margin-right: 3%;
+}
+
+.topNav ul li{
+    top: 0;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+.topNav ul a{
+padding:15px;
+line-height: 45px;
+color: #0064AC;
+font-size:12px;
+text-transform:uppercase;
+text-decoration: none;
+}
+.topNav ul li:hover{
+opacity: 0.6;
+}
+.topNav .logo_cnas{
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    content:"";
+    margin-left:-40px;
+    }
+.topNav .top-social a {
+padding:15px;
+color:#0064AC;
+}
+.topNav .top-social {
+line-height: 60px;
+}
+.topNav .top-social a:hover {
+opacity: 0.6;
+}
+
+
+.bottomNav{
+    background:white;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    }
+
+
+.toggle1 {
+  font-size: 25px;
+  margin-left: 5%;
+  float: left;
+  line-height: 100px;
+  font-weight: 400;
+  
+}
+.bottomNav .toggle1 a {
+    padding:15px;
+    color:#0064AC;
+    }
+    nav .toggle1 a:hover {
+    opacity: 0.6;
+    }
+.bottomNav .toggle1 a:hover {
+        opacity: 0.6;
+        }
+
+        .bottomNav .socialtop1{
+    font-size: 25px;
+    float: right;
+    margin-right: 5%;
+    font-weight: 400;
+    line-height: 100px;
+}
+.bottomNav .top-social1 a {
+padding:15px;
+color:#0064AC;
+}
+.bottomNav .top-social1 a:hover {
+opacity: 0.6;
+}
+
+.bottomNav .label_cnas a{
+    position: absolute;
+    left: 27%;
+    top: 40%;
+    text-decoration: none;
+    right:auto;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform:uppercase;
+    color:#0064AC;
+    }
