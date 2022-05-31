@@ -4,9 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.List;
-
 import javax.swing.text.html.HTMLDocument.Iterator;
-
 import java.sql.*;
 import org.postgresql.*;
 import net.model.Patient;
@@ -97,7 +95,7 @@ public class Patientdao {
 					i++;
 					Sa=null;
 					statement2=null;
-				
+					
 			    }
 			
 			

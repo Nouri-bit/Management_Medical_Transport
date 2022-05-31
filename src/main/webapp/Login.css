@@ -5,7 +5,7 @@ body{
   margin: 0%;
   padding: 0%;
 } 
-/*Nav css*/  
+/*topNav css*/  
 .toggle {
   font-size: 20px;
   color: #0064AC;
@@ -16,12 +16,12 @@ body{
   display: block;
   font-weight: 400;
 }
-nav{
+.topNav{
 background: #ffffff;
 height: 60px;
 width: 100%;
 }
-nav ul{
+.topNav ul{
     z-index: -1;
     margin-top:-15px;
     position: fixed;
@@ -36,21 +36,21 @@ nav ul{
     box-sizing: border-box;
     padding: 0;
   }
-nav ul.show{
+.topNav ul.show{
     top: 60px;
   }
-nav .socialtop{
+.topNav .socialtop{
     float: right;
     margin-right: 3%;
 }
 
-nav ul li{
+.topNav ul li{
     top: 0;
     width: 100%;
     float: left;
     text-align: center;
 }
-nav ul a{
+.topNav ul a{
 font-weight: 400;
 padding:15px;
 line-height: 45px;
@@ -59,10 +59,10 @@ font-size:14px;
 text-transform:uppercase;
 text-decoration: none;
 }
-nav ul li:hover{
+.topNav ul li:hover{
 opacity: 0.6;
 }
-nav .logo_cnas{
+.topNav .logo_cnas{
   position: absolute;
   left: 50%;
   top: 0%;
@@ -127,3 +127,65 @@ form {
     font-size:14px;
     text-transform:uppercase;
   }
+
+/*bottomNav css*/  
+  .bottomNav{
+    background:white;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    }
+
+
+.toggle1 {
+  font-size: 25px;
+  margin-left: 5%;
+  float: left;
+  line-height: 100px;
+  font-weight: 400;
+  
+}
+.bottomNav .toggle1 a {
+    padding:15px;
+    color:#0064AC;
+    }
+    nav .toggle1 a:hover {
+    opacity: 0.6;
+    }
+.bottomNav .toggle1 a:hover {
+        opacity: 0.6;
+        }
+
+        .bottomNav .socialtop1{
+    font-size: 25px;
+    float: right;
+    margin-right: 5%;
+    font-weight: 400;
+    line-height: 100px;
+}
+.bottomNav .top-social1 a {
+padding:15px;
+color:#0064AC;
+}
+.bottomNav .top-social1 a:hover {
+opacity: 0.6;
+}
+
+
+.bottomNav .label_cnas a{
+    position: absolute;
+    left: 27%;
+    top: 40%;
+    text-decoration: none;
+    right:auto;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform:uppercase;
+    color:#0064AC;
+    }
+    
+    
+    
+    
+    
