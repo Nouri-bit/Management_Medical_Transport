@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body{
+  background-color: #6EAFC9;
+  text-transform:uppercase;
+  margin: 0%;
+  padding: 0%;
+} 
+/*topNav css*/  
+.toggle {
+  font-size: 20px;
+  color: #0064AC;
+  float: left;
+  line-height: 60px;
+  margin-left: 3%;
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+}
+.topNav{
+background: #ffffff;
+height: 60px;
+width: 100%;
+}
+.topNav ul{
+    z-index: -1;
+    margin-top:-15px;
+    position: fixed;
+    top: -400px;
+    right: 0;
+    left: 0;
+    width:200px;
+    background: #ffffff;
+    display: inline-block;
+    transition: top .4s;
+    margin-left: 0;
+    box-sizing: border-box;
+    padding: 0;
+  }
+.topNav ul.show{
+    top: 60px;
+  }
+.topNav .socialtop{
+    float: right;
+    margin-right: 3%;
+}
+
+.topNav ul li{
+    top: 0;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+.topNav ul a{
+font-weight: 400;
+padding:15px;
+line-height: 45px;
+color: #0064AC;
+font-size:14px;
+text-transform:uppercase;
+text-decoration: none;
+}
+.topNav ul li:hover{
+opacity: 0.6;
+}
+.topNav .logo_cnas{
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  content:"";
+  margin-left:-40px;
+  }
+
+/*Form css*/
+body .form{
+  display: flex;
+  justify-content:center;
+  flex-direction: columns;
+  align-items: center;
+}
+form {
+    margin-top: 10%;
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    min-width: 400px;
+  }
+  form h1{
+    color: #0064AC;
+    text-align:center;
+  }
+  form .inputs {
+    display: flex;
+    flex-direction: column;
+  }
+  form .inputs input[type='number'], input[type='password']{
+    padding: 15px;
+    border-radius: 5px;
+    background-color:#F5F8FA;
+    outline:none;
+    border: none;
+  }
+  form p.input_span{
+    font-size: 12px; 
+    margin-bottom: 5px;
+    color: #0064AC;
+  }
+  form .pswd_forget{
+    margin-bottom:20px;
+    margin-top:20px;
+  }
+  form .pswd_forget a{
+    font-size: 12px;
+    color: #A946E9;
+    text-decoration: none;
+  }
+  
+  form button{
+    text-align: center;
+    padding: 15px 25px;
+    border-radius: 5px;
+    border:none;
+    font-size: 15px;
+    color: #fff;
+    background-color: #0064AC;
+    outline:none;
+    cursor:pointer;
+    font-size:14px;
+    text-transform:uppercase;
+  }
+
+/*bottomNav css*/  
+  .bottomNav{
+    background:white;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    }
+
+
+.toggle1 {
+  font-size: 25px;
+  margin-left: 5%;
+  float: left;
+  line-height: 100px;
+  font-weight: 400;
+  
+}
+.bottomNav .toggle1 a {
+    padding:15px;
+    color:#0064AC;
+    }
+    nav .toggle1 a:hover {
+    opacity: 0.6;
+    }
+.bottomNav .toggle1 a:hover {
+        opacity: 0.6;
+        }
+
+        .bottomNav .socialtop1{
+    font-size: 25px;
+    float: right;
+    margin-right: 5%;
+    font-weight: 400;
+    line-height: 100px;
+}
+.bottomNav .top-social1 a {
+padding:15px;
+color:#0064AC;
+}
+.bottomNav .top-social1 a:hover {
+opacity: 0.6;
+}
+
+
+.bottomNav .label_cnas a{
+    position: absolute;
+    left: 27%;
+    top: 40%;
+    text-decoration: none;
+    right:auto;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform:uppercase;
+    color:#0064AC;
+    }
