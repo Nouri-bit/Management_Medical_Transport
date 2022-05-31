@@ -29,7 +29,7 @@
         </nav>
     </div>
     <div class="form">
-        <form action="<%= request.getContextPath() %>/Login_servlet" method="post"> 
+        <form action="<%= request.getContextPath() %>/Login_servlet" method="POST"> 
             <h1>Se connecter</h1>
             <div class="inputs">
               <p class="input_span"><span>Numéro de sécurité social</span></p>

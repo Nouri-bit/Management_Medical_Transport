@@ -45,14 +45,16 @@ public class Login_servlet extends HttpServlet {
 		System.out.println("heeeeeeeere ");
 		try {
  			int tab= p.login_agent(agent);
+ 			System.out.println(tab);
  			if (tab==5)
  			{
  				//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/Ajoutpatient.jsp").dispatcher.forward(request, response);
  				request.getSession();
- 				request.getRequestDispatcher("/WEB-INF/views/Ajoutpatient.jsp").forward(request, response);
+ 				request.getRequestDispatcher("/WEB-INF/views/AjoutPatient.jsp").forward(request, response);
  			}
  			else {
- 				System.out.println("walouuu !! ");
+ 				request.setAttribute("errorMessage", "Invalid Credentials!");
+ 	            request.getRequestDispatcher("/WEB-INF/views/Login.jsp").forward(request, response);
  			}
  			
 		} catch (ClassNotFoundException e) {
