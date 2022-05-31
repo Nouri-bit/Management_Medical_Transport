@@ -43,6 +43,10 @@ color: aliceblue;
 body{
     background-color:#6EAFC9;
     margin: 0;
+    font-family: Roboto, Courier, monospace;
+    color:#0064ACff;
+    position: relative;
+    padding-bottom: 150px;
 }
 .toggle {
   font-size: 20px;
@@ -124,7 +128,7 @@ opacity: 0.6;
     background:white;
     height: 100px;
     width: 100%;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     }
 

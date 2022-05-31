@@ -1,26 +1,31 @@
 
+body{
+  background-color:#6EAFC9;
+  margin: 0;
+  font-family: Roboto, Courier, monospace;
+  color:#0064ACff;
+}
 .row{
   display: grid;
   gap: 20px;
   grid-template-columns: 3fr  2fr;
+  padding: 100px;
   
-  height: 800px;
 }
 .col_left{ 
   display: grid;
-  gap: 20px;
+  gap:4%;
   grid-template-rows: 3fr 7fr;
 }
 .col_side{
   display: grid;
-  gap: 20px;
+  gap: 1%;
   grid-template-rows: 1fr 1fr 1fr;
 }
 .topboxes{
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr  1fr 1fr;
-  height: 30%;
   margin: 10px;
   margin-top: 40px;
   padding: 5px;
@@ -68,10 +73,6 @@
   align-items: center;
 }
 
-body{
-    background-color:#6EAFC9;
-    margin: 0;
-}
 
 /*Navbar css*/
 
