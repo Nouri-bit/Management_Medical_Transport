@@ -1,6 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="ISO-8859-1">
 <style>
 body{
@@ -66,7 +69,7 @@ img{
             </label>
             <ul>
                <li><a href='#'>Ajouter une demande</a></li>
-               <li><a href='#'>Tableau des écarts</a></li>
+               <li><a href='#'>Tableau des Ã©carts</a></li>
                <li><a href='#'>Planning </a></li>
                <li><a href='#'>Cartographie</a></li>
                <li><a href='#'>Remboursements</a></li>
@@ -83,52 +86,17 @@ img{
 <div class="card" style="max-width: 300px;">
   <img src="image.jpg" alt="Avatar" style="width:70%">
   <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
-
-<div class="card" style="max-width: 300px;" onclick="location.href='#';">
-  
-  <img src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>Chafi2 7abar </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
-
-<div class="card" style="max-width: 300px;">
-  <img src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
-
-<div class="card" style="max-width: 300px;">
-  <img src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
-
-<div class="card" style="max-width: 300px;">
-  <img src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
-
-<div class="card" style="max-width: 300px;">
-  <img src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
+    <h4><b id="name" >name </b></h4> 
     <p  > 0123456</p>
   </div>
 </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        $('.toggle i').click(function () {
+            $('ul').toggleClass("show");
+        });
+    </script>
 </body>
 </html>
