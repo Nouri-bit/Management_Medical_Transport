@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import net.dao.login;
 import net.model.Agent;
 
 /**
@@ -21,7 +21,7 @@ public class Login_servlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    Login_servlet login; 
+	login p = new login();
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,8 +42,22 @@ public class Login_servlet extends HttpServlet {
 		Agent agent = new Agent();
 		agent.setNss(nss);
 		agent.setPwd(pwd);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/Ajoutpatient.jsp");
- 		 dispatcher.forward(request, response);
+		System.out.println("heeeeeeeere ");
+		try {
+ 			int tab= p.login_agent(agent);
+ 			if (tab==5)
+ 			{
+ 				//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/Ajoutpatient.jsp").dispatcher.forward(request, response);
+ 				request.getSession();
+ 				request.getRequestDispatcher("/WEB-INF/views/Ajoutpatient.jsp").forward(request, response);
+ 			}
+ 			else {
+ 				System.out.println("walouuu !! ");
+ 			}
+ 			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 			}
 
 }
