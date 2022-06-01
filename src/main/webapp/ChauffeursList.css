@@ -12,13 +12,14 @@ color: aliceblue;
  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
  grid-auto-rows: auto;
  grid-gap: 2rem;
- 
+ margin:20px;
  }
  .card {
  border-radius: 20px; 
  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
  padding: 10%;
  background-color: aliceblue;
+ height:max-content;
  }
  /* On mouse-over, add a deeper shadow */
 .card:hover {
@@ -38,8 +39,6 @@ color: aliceblue;
   width: 40%;  
 }
 
-
-/*navbar css*/
 body{
     background-color:#6EAFC9;
     margin: 0;
@@ -48,6 +47,7 @@ body{
     position: relative;
     padding-bottom: 150px;
 }
+/*navbar css*/
 .toggle {
   font-size: 20px;
   color: #0064AC;
@@ -128,7 +128,7 @@ opacity: 0.6;
     background:white;
     height: 100px;
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     }
 
@@ -152,7 +152,7 @@ opacity: 0.6;
         opacity: 0.6;
         }
 
-        .bottomNav .socialtop1{
+.bottomNav .socialtop1{
     font-size: 25px;
     float: right;
     margin-right: 5%;

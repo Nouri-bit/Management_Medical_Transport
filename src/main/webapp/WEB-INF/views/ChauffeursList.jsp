@@ -41,6 +41,7 @@
 <div class="Title">
    <h1>Chauffeurs</h1>
 </div>
+<div class="cards">
 <c:forEach items="${products}" var="compte">
 <div class="card" style="max-width: 300px;" onclick="location.href='#';">
   
@@ -50,43 +51,10 @@
     <p> ${compte.nss}</p>
   </div>
 </div>
-	</c:forEach>
+</c:forEach>
+</div>
 </form>
-<!-- 
-<div class="card" style="max-width: 300px;">
-  <img class="image" src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
 
-<div class="card" style="max-width: 300px;">
-  <img class="image" src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
-
-<div class="card" style="max-width: 300px;">
-  <img class="image" src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
-
-<div class="card" style="max-width: 300px;">
-  <img class="image" src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
-
-</div>
--->
 <nav class="bottomNav">
     <label class="toggle1">
             <div class='top-social1'>
