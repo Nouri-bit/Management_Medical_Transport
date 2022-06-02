@@ -12,6 +12,8 @@
 <link href="images/logo_CNAS.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/aadb09bf28.js" crossorigin="anonymous"></script>
+<script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
+<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css"/>
 </head>
 
  <script language="JavaScript">
@@ -37,7 +39,10 @@
                 else
                 { elmt.checked = ''; }
             }
+          
         </script>
+        <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqq8YS_U68oONhUcJQmJRDLzp1qvvf6O8&libraries=places&callback=initMap">
+</script>
 </head>
 <body>
     <nav class="topNav">
@@ -82,7 +87,14 @@
 				<tr>
 					<td>Address</td>
 					<td><input type="text" name="addresse" /></td>
+					
+      <!-- More Results-->
+    </span>
+  </div>
+</span>
+					
 				</tr>
+				
 				<!--  <tr>
 					<td>Id chauffeur </td>
 					<td><input type="text" name="idchauffeur" /></td>
