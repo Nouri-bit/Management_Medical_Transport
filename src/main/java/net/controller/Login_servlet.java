@@ -37,7 +37,7 @@ public class Login_servlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int nss=Integer.parseInt(request.getParameter("nss"));
+		Long nss=Long.parseLong(request.getParameter("nss"));
 		String pwd=request.getParameter("pwd");
 		Agent agent = new Agent();
 		agent.setNss(nss);

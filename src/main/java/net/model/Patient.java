@@ -1,17 +1,20 @@
 package net.model;
+
+import java.math.BigInteger;
+
 //import javax.persistence.Column;
 //@Table(name="Patient")
 public class Patient {
     
-	private int NSS;
+	private Long NSS;
 	private String Nom;
 	private String Prenom;
 	private String Addresse;
 	//private int idChauffeur;
-	public int getNSS() {
+	public Long getNSS() {
 		return NSS;
 	}
-	public void setNSS(int nSS) {
+	public void setNSS(Long nSS) {
 		this.NSS = nSS;
 	}
 	public String getNom() {

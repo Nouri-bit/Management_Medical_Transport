@@ -29,7 +29,7 @@ public class Chauffeurs {
 				Chauffeur A= new Chauffeur();
 				A.setMail(t.getString("mail"));
 				A.setNom(t.getString("nom"));
-				A.setNss(t.getInt("nss"));
+				A.setNss(t.getLong("nss"));
 				A.setPhoto(t.getString("photo"));
 				A.setPrenom(t.getString("prenom"));
 				A.setType(t.getInt("type"));

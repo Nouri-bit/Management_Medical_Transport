@@ -6,14 +6,14 @@ private String titre;
 private int type;
 private int tranche; 
 private boolean attente;
-private int idpatient;
+private Long idpatient;
 private String  jour;
 private float kmreel;
-private int idChauffeur;
-public int getIdChauffeur() {
+private Long idChauffeur;
+public Long getIdChauffeur() {
 	return idChauffeur;
 }
-public void setIdChauffeur(int idChauffeur) {
+public void setIdChauffeur(Long idChauffeur) {
 	this.idChauffeur = idChauffeur;
 }
 public float getKmreel() {
@@ -52,10 +52,10 @@ public boolean isAttente() {
 public void setAttente(boolean attente) {
 	this.attente = attente;
 }
-public int getIdpatient() {
+public Long getIdpatient() {
 	return idpatient;
 }
-public void setIdpatient(int idpatient) {
+public void setIdpatient(Long idpatient) {
 	this.idpatient = idpatient;
 }
 

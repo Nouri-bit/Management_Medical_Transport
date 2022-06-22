@@ -1,16 +1,16 @@
 package net.model;
 
 public class Agent {
-    private int nss; 
+    private Long nss; 
 	private String nom;
 	private String prenom;
 	private String photo;
 	private String mail;
 	private String pwd;
-	public int getNss() {
+	public Long getNss() {
 		return nss;
 	}
-	public void setNss(int nss) {
+	public void setNss(Long nss) {
 		this.nss = nss;
 	}
 	public String getNom() {

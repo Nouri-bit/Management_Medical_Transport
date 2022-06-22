@@ -21,7 +21,7 @@ try {
 	Connection connection= DriverManager.getConnection("jdbc:postgresql://localhost:5433/2cs_project_18","postgres", "20001999");
 	PreparedStatement statement=connection.prepareStatement(sql);
 	System.out.println(agent.getNss() + " " + agent.getPwd());
-	statement.setInt(1,agent.getNss());
+	statement.setLong(1,agent.getNss());
 	statement.setString(2,agent.getPwd());
 	
 	System.out.println(sql);

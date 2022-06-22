@@ -18,8 +18,8 @@ public class App {
         	 * donner X, y d'une @dresse 
         	 * 
         	 **********/
-           String queryy= "Washington,DC";
-            URL url = new URL("https://www.mapquestapi.com/geocoding/v1/address?key=5rbG94EZ1CBfSDepJwvayTwiYOG5Fgm9&location="+queryy);
+           String queryy= "Washington DC Budget Office";
+            URL url = new URL("http://www.mapquestapi.com/geocoding/v1/address?key=5rbG94EZ1CBfSDepJwvayTwiYOG5Fgm9&location=Washington%20DC%20Budget%20Office");
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -29,9 +29,9 @@ public class App {
             int responseCode = conn.getResponseCode();
 
             // 200 OK
-            if (responseCode != 200) {
+          /*  if (responseCode != 200) {
                 throw new RuntimeException("HttpResponseCode: " + responseCode);
-            } else {
+            } else {*/
 
                 StringBuilder informationString = new StringBuilder();
                 Scanner scanner = new Scanner(url.openStream());
@@ -42,7 +42,7 @@ public class App {
                 //Close the scanner
                 scanner.close();
 
-                System.out.println(informationString);
+                //System.out.println(informationString);
 
 
                 //JSON simple library Setup with Maven is used to convert strings to JSON
@@ -60,9 +60,9 @@ public class App {
             	 * Donner la distance entre deux @dresse 
             	 * 
             	 **********/
-                String addr="Washington,DC";
-                String dis="Westminster,CO";
-                URL url2 = new URL("http://www.mapquestapi.com/directions/v2/routematrix?key=5rbG94EZ1CBfSDepJwvayTwiYOG5Fgm9&from=Denver,%20CO&to=Westminster,%20CO");
+                String addr="Washington%Plaza%Hotel";
+                String dis="Washington%DC%Budget%Office";
+                URL url2 = new URL("http://www.mapquestapi.com/directions/v2/routematrix?key=5rbG94EZ1CBfSDepJwvayTwiYOG5Fgm9&from=Washington%Plaza%Hotel&to=Washington%Plaza%Hotel");
                 System.out.println(url2);
                 HttpURLConnection conn2 = (HttpURLConnection) url2.openConnection();
                 System.out.println(conn2);
@@ -72,11 +72,7 @@ public class App {
                 //Check if co	nnect is made
                 int responseCode2 = conn2.getResponseCode();
 
-                // 200 OK
-                if (responseCode2 != 200) {
-                    throw new RuntimeException("HttpResponseCode: " + responseCode2);
-                } else {
-
+               
                     StringBuilder informationString2 = new StringBuilder();
                     Scanner scanner2 = new Scanner(url2.openStream());
 
@@ -85,10 +81,22 @@ public class App {
                     }
                     //Close the scanner
                     scanner2.close();
-                    System.out.println(informationString2);
+                    JSONParser parse2 = new JSONParser();
+                    JSONObject dataObject2 = (JSONObject) parse2.parse(String.valueOf(informationString2));
+                   String X= (((ArrayList) dataObject2.get("distance")).toArray()[0]).toString();
+                   String Y = ((ArrayList) dataObject2.get("distance")).toArray()[1].toString();
+                    double XX =	 new Double(X);
+                    double YY =	 new Double(Y);
+                    System.out.println(Math.sqrt((XX*XX)+(YY*YY)));
+                    //System.out.println()
+                    //JSONObject  dd= (JSONObject) ((ArrayList) dataObject2.get("d istance")).toArray()[0];
+                    //System.out.println(dd);
+                    
+                   // JSONObject ee = (JSONObject) dataObject2.get("distance");
+                   
             }
             
-            }} catch (Exception e) {
+            catch (Exception e) {
             e.printStackTrace();
         }
     }
