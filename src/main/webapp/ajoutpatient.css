@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body{
+  background-color: #6EAFC9;
+  text-transform:uppercase;
+  margin: 0%;
+  padding: 0%;
+}
+
+
+/*topNav css*/  
+.toggle {
+  font-size: 20px;
+  color: #0064AC;
+  float: left;
+  line-height: 60px;
+  margin-left: 3%;
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+  
+}
+.topNav{
+background: #ffffff;
+height: 60px;
+width: 100%;
+position: relative;
+}
+.topNav ul{
+    z-index: -1;
+    margin-top:-15px;
+    position: fixed;
+    top: -400px;
+    right: 0;
+    left: 0;
+    width:200px;
+    background: #ffffff;
+    display: inline-block;
+    transition: top .4s;
+    margin-left: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.topNav ul.show{
+    top: 60px;
+  }
+.topNav .socialtop{
+    float: right;
+    margin-right: 3%;
+}
+
+.topNav ul li{
+    top: 0;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+.topNav ul a{
+padding:15px;
+line-height: 45px;
+color: #0064AC;
+font-size:12px;
+text-transform:uppercase;
+text-decoration: none;
+}
+.topNav ul li:hover{
+opacity: 0.6;
+}
+.topNav .logo_cnas{
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    content:"";
+    margin-left:-40px;
+    }
+.topNav .top-social a {
+padding:15px;
+color:#0064AC;
+}
+.topNav .top-social {
+line-height: 60px;
+}
+.topNav .top-social a:hover {
+opacity: 0.6;
+}
+
+/*form css*/
+body .form{
+  display: flex;
+  justify-content:center;
+  flex-direction: columns;
+  align-items: center;
+}
+form {
+    margin: auto; 
+    margin-top: 2%;
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    width: 30%;
+    position:flex;
+}
+form .inputs {
+  display: flex;
+  flex-direction: column;
+}
+form .inputs input[type='number'], input[type='text']{
+  padding: 12px;
+  border-radius: 5px;
+  background-color:#F5F8FA;
+  outline:none;
+  border: none;
+}
+form p.input_span{
+  font-size: 12px; 
+  margin-bottom: 5px;
+  color: #0064AC;
+}
+form button{
+  text-align: center;
+  padding: 15px 25px;
+  border-radius: 5px;
+  border:none;
+  font-size: 10px;
+  color: #fff;
+  background-color: #0064AC;
+  outline:none;
+  cursor:pointer;
+  text-transform:uppercase;
+  margin-top: 20px;
+}
+.container, .container2{
+  width:500px;
+  margin: 5px auto;
+  display: flex;
+} 
+.column{
+  margin: 0 3px 5px;
+  flex-basis: 33%;
+} 
+.card{
+ padding: 10px 10px;
+}
+.checkbox{
+  display: block;
+ }
+
+/*bottomNav css*/ 
+.bottomNav{
+  background:white;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  }
+
+
+.toggle1 {
+font-size: 25px;
+margin-left: 5%;
+float: left;
+line-height: 100px;
+font-weight: 400;
+
+}
+.bottomNav .toggle1 a {
+  padding:15px;
+  color:#0064AC;
+  }
+  nav .toggle1 a:hover {
+  opacity: 0.6;
+  }
+.bottomNav .toggle1 a:hover {
+      opacity: 0.6;
+      }
+.bottomNav .socialtop1{
+  font-size: 25px;
+  float: right;
+  margin-right: 5%;
+  font-weight: 400;
+  line-height: 100px;
+}
+.bottomNav .top-social1 a {
+padding:15px;
+color:#0064AC;
+}
+.bottomNav .top-social1 a:hover {
+opacity: 0.6;
+}
+
+
+.bottomNav .label_cnas a{
+  position: absolute;
+  left: 23%;
+  top: 40%;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform:uppercase;
+  color:#0064AC;
+  }
