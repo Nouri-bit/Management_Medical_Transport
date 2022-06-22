@@ -6,7 +6,7 @@ public class Operateur {
 	private String photo;
 	private String mail;
 	private String pwd;
-	private int idoperateur;
+	private Long idoperateur;
 	private String addresse;
 	public String getNom() {
 		return nom;
@@ -38,10 +38,10 @@ public class Operateur {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public int getIdoperateur() {
+	public Long getIdoperateur() {
 		return idoperateur;
 	}
-	public void setIdoperateur(int idoperateur) {
+	public void setIdoperateur(Long idoperateur) {
 		this.idoperateur = idoperateur;
 	}
 	public String getAddresse() {

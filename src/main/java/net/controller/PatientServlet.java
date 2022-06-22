@@ -1,6 +1,7 @@
 package net.controller;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -12,7 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import net.dao.Patientdao;
 import net.model.Patient;
 import net.model.Seance;
-
+import org.json.simple.JSONArray;
+import org.json.JSONException;
+import org.json.simple.JSONObject;
+import org.json.JSONString;
+import org.json.simple.parser.JSONParser;
 /**
  * Servlet implementation class PatientServlet
  */
@@ -51,7 +56,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		String Prenom=request.getParameter("prenom");
 		String Addresse=request.getParameter("addresse");
 		//int idChauffeur=Integer.parseInt(request.getParameter("idchauffeur"));
-		int NSS= Integer.parseInt(request.getParameter("nss"));
+		Long NSS= Long.parseLong(request.getParameter("nss"));
 		int type= Integer.parseInt(request.getParameter("type"));
 		int tranche= Integer.parseInt(request.getParameter("tranche"));
 		Boolean attente=Boolean.parseBoolean(request.getParameter("attente")); 
@@ -68,7 +73,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		List <Seance> sseance = new ArrayList<Seance>(); 
 		int i = 0;
 		//for (int i = 0; i<jour.length; i++) {
-			while(   i< 4 && i<jour.length) {
+			while(i< 4 && i<jour.length) {
 			Seance seance = new Seance();
 			//seance.settitre(titre);
 			seance.setType(type);

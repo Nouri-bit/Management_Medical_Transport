@@ -1,53 +1,90 @@
-h1{
-font-size: 100px;
-text-align: center;
-text-shadow: 4px 4px 7px #0064ACff;
-height: 100px;
-color: aliceblue;
-
-}
-.cards {
-  height:max-content;
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
- grid-auto-rows: auto;
- grid-gap: 2rem;
- margin:20px;
- }
- .card {
- border-radius: 20px; 
- box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
- padding: 10%;
- background-color: aliceblue;
- height:max-content;
- }
- /* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
- .container{
-  margin: auto;
-  padding: auto;
-  text-align: center;
- }
-
-.image{
-  border-radius: 50%;
-  display: block;
+body{
+  background-color:#6EAFC9ff; 
+  /*backdrop-filter: blur(5px);*/
+  
   margin-left: auto;
   margin-right: auto;
-  width: 40%;  
+  position: relative;
+  font-family: Roboto, Courier, monospace;
+  color:#0064ACff;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 100px;
+  text-align: center;
 }
 
+td{
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.main{
+
+    width: fit-content;
+	  background-color: white;
+	  display: flex;
+  	justify-content: center;
+  	align-items: center;
+    padding: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow:#0064ACff;
+    box-shadow: 10px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: -2px 2px 5px 2px #0064ACff;
+    position: absolute;
+    left:40%;
+}
+.séance{
+    width: 500px;
+    border-left: 4px solid #0064ACff;
+    border-bottom: 1px solid rgba(255,255,255,.25);
+    padding-left: 20px;
+    text-align:left;
+    display: flex;
+}
+
+#btn {
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    background: #0064ACff;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+    border: 0cm;
+  }
+#btn:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    background: #fff;
+    color: #000;
+  }
+  .séance h1{
+    padding: 0;
+    margin: 2px;
+  }
+  .séance p{
+    margin: 2px;
+  }
+#form{
+  display: none;
+}
+#kmtxt{
+  visibility: hidden;
+}
+#btn{
+  margin: 0px;
+}
+
+/*navbar css*/
 body{
     background-color:#6EAFC9;
     margin: 0;
-    font-family: Roboto, Courier, monospace;
-    color:#0064ACff;
-    position: relative;
-    padding-bottom: 150px;
 }
-/*navbar css*/
 .toggle {
   font-size: 20px;
   color: #0064AC;
@@ -152,7 +189,7 @@ opacity: 0.6;
         opacity: 0.6;
         }
 
-.bottomNav .socialtop1{
+        .bottomNav .socialtop1{
     font-size: 25px;
     float: right;
     margin-right: 5%;
@@ -166,7 +203,6 @@ color:#0064AC;
 .bottomNav .top-social1 a:hover {
 opacity: 0.6;
 }
-
 
 .bottomNav .label_cnas a{
     position: absolute;

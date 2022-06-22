@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,61 +37,23 @@
             </div>
         </div>
     </nav>    
-
+<form action="<%= request.getContextPath() %>/ChauffeurServlet" method="get">
 <div class="Title">
    <h1>Chauffeurs</h1>
 </div>
 <div class="cards">
-<div class="card" style="max-width: 300px;">
-  <img class="image" src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
-
+<c:forEach items="${products}" var="compte">
 <div class="card" style="max-width: 300px;" onclick="location.href='#';">
   
-  <img class="image" src="image.jpg" alt="Avatar" style="width:70%">
+  <img class="image" src="${compte.photo}" alt="Avatar" style="width:70%">
   <div class="container">
-    <h4><b>Chafi2 7abar </b></h4> 
-    <p  > 0123456</p>
+    <h4><b>${compte.nom} ${compte.prenom}</b></h4> 
+    <p> ${compte.nss}</p>
   </div>
 </div>
-
-<div class="card" style="max-width: 300px;">
-  <img class="image" src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
+</c:forEach>
 </div>
-
-<div class="card" style="max-width: 300px;">
-  <img class="image" src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
-
-<div class="card" style="max-width: 300px;">
-  <img class="image" src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
-
-<div class="card" style="max-width: 300px;">
-  <img class="image" src="image.jpg" alt="Avatar" style="width:70%">
-  <div class="container">
-    <h4><b>name </b></h4> 
-    <p  > 0123456</p>
-  </div>
-</div>
-
-</div>
+</form>
 
 <nav class="bottomNav">
     <label class="toggle1">

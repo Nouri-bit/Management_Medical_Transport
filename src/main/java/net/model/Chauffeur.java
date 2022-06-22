@@ -1,7 +1,7 @@
 package net.model;
 
 public class Chauffeur {
-private int nss;
+private Long nss;
 private String nom;
 private String prenom;
 private String photo;
@@ -16,10 +16,10 @@ public void setIdoperateur(int idoperateur) {
 	this.idoperateur = idoperateur;
 }
 private int type;
-public int getNss() {
+public Long getNss() {
 	return nss;
 }
-public void setNss(int nss) {
+public void setNss(Long nss) {
 	this.nss = nss;
 }
 public String getNom() {
