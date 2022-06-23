@@ -7,17 +7,35 @@ import org.json.simple.parser.JSONParser;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class App {
-
+	public static String getDayStringOld(Date date, Locale locale) {
+	    DateFormat formatter = new SimpleDateFormat("EEEE", locale);
+	    return formatter.format(date);
+	}
     public static void main(String[] args) {
         try {
         	/*******
         	 * donner X, y d'une @dresse 
         	 * 
         	 **********/
+        	String tes = getDayStringOld(new Date(06-25-2022) , new  Locale("fr"));
+        	System.out.println(new Date());
+        	System.out.println(tes);
+        	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        	Date dt = simpleDateFormat.parse("20/06/2022");
+        	Calendar cc = Calendar.getInstance();
+	        cc.setTime(dt);
+	        cc.add(Calendar.DATE, 1);
+	        dt = cc.getTime();
+	        System.out.println(dt);
            String queryy= "Washington DC Budget Office";
             URL url = new URL("http://www.mapquestapi.com/geocoding/v1/address?key=5rbG94EZ1CBfSDepJwvayTwiYOG5Fgm9&location=Washington%20DC%20Budget%20Office");
 

@@ -1,5 +1,6 @@
 package net.model;
 
+import java.util.Date;
 
 public class Seance {
 private String titre;
@@ -9,7 +10,14 @@ private boolean attente;
 private Long idpatient;
 private String  jour;
 private float kmreel;
+private Date date;
 private Long idChauffeur;
+public Date getDate() {
+	return date;
+}
+public void setDate(Date date) {
+	this.date = date;
+}
 public Long getIdChauffeur() {
 	return idChauffeur;
 }
