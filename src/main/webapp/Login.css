@@ -20,6 +20,7 @@ body{
 background: #ffffff;
 height: 60px;
 width: 100%;
+position: fixed;
 }
 .topNav ul{
     z-index: -1;
@@ -78,7 +79,7 @@ body .form{
   align-items: center;
 }
 form {
-    margin-top: 10%;
+    margin-top: 9%;
     background-color: #fff;
     padding: 20px 40px;
     border-radius: 10px;
