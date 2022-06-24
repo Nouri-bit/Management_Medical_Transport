@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="UTF-8"%>
-=======
->>>>>>> branch 'master' of https://github.com/Nouri-bit/2cs_18
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,14 +13,12 @@
 <body>
     <div class="nav">
         <nav class="topNav">
-            <label class="toggle">
-                <i class="fa fa-bars"></i>
-            </label>
+          
             <ul>
                <li><a href='#'>page d'accueil</a></li>
             </ul> 
             <div class="logo_cnas">
-                <a href=""><img src="images/logo_CNAS.png" width="80px" height="60px"/></a>
+                <a href=""><img src="https://elhanaa.cnas.dz/resources/images/cnasfond.png" width="50px" /></a>
             </div>
         </nav>
     </div>
@@ -32,13 +26,13 @@
         <form action="<%= request.getContextPath() %>/Login_servlet" method="POST"> 
             <h1>Se connecter</h1>
             <div class="inputs">
-              <p class="input_span"><span>Numéro de sécurité social</span></p>
+              <p class="input_span"><span>NumÃ©ro de sÃ©curitÃ© social</span></p>
               <input type="number" name="nss"/>
               <p class="input_span" ><span>Mot de passe</span></p>
               <input type="password" name="pwd">
             </div>
             <div class="pswd_forget">
-              <a href="#">Mot de passe oublié ?</a>
+              <a href="#">Mot de passe oubliÃ© ?</a>
             </div>
             <div align="center">
               <button type="submit">Se connecter</button>
@@ -55,7 +49,7 @@
                     </div>
             </label>
             <div class="label_cnas">
-                <a href=""><img/>Caisse Nationale des Assurances Sociales des Travailleurs Salariés</a>
+                <a href=""><img/>Caisse Nationale des Assurances Sociales des Travailleurs SalariÃ©s</a>
             </div>
             <div class="socialtop1">
                 <div class='top-social1'>

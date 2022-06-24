@@ -1,87 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body{
   background-color: #6EAFC9;
   text-transform:uppercase;
   margin: 0%;
   padding: 0%;
+  padding-top: 60px;
+  font-family: Roboto, Courier, monospace;
 }
 
-
-/*topNav css*/  
-.toggle {
-  font-size: 20px;
-  color: #0064AC;
-  float: left;
-  line-height: 60px;
-  margin-left: 3%;
-  cursor: pointer;
-  display: block;
-  font-weight: 400;
-  
-}
-.topNav{
-background: #ffffff;
-height: 60px;
-width: 100%;
-position: relative;
-}
-.topNav ul{
-    z-index: -1;
-    margin-top:-15px;
-    position: fixed;
-    top: -400px;
-    right: 0;
-    left: 0;
-    width:200px;
-    background: #ffffff;
-    display: inline-block;
-    transition: top .4s;
-    margin-left: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.topNav ul.show{
-    top: 60px;
-  }
-.topNav .socialtop{
-    float: right;
-    margin-right: 3%;
-}
-
-.topNav ul li{
-    top: 0;
-    width: 100%;
-    float: left;
-    text-align: center;
-}
-.topNav ul a{
-padding:15px;
-line-height: 45px;
-color: #0064AC;
-font-size:12px;
-text-transform:uppercase;
-text-decoration: none;
-}
-.topNav ul li:hover{
-opacity: 0.6;
-}
-.topNav .logo_cnas{
-    position: absolute;
-    left: 50%;
-    top: 0%;
-    content:"";
-    margin-left:-40px;
-    }
-.topNav .top-social a {
-padding:15px;
-color:#0064AC;
-}
-.topNav .top-social {
-line-height: 60px;
-}
-.topNav .top-social a:hover {
-opacity: 0.6;
-}
 
 /*form css*/
 body .form{
@@ -93,6 +19,7 @@ body .form{
 form {
     margin: auto; 
     margin-top: 2%;
+    margin-bottom :2%;
     background-color: #fff;
     padding: 20px 40px;
     border-radius: 10px;
@@ -103,7 +30,7 @@ form .inputs {
   display: flex;
   flex-direction: column;
 }
-form .inputs input[type='number'], input[type='text']{
+form .inputs input[type='number'], input[type='text'], input[type='date']{
   padding: 12px;
   border-radius: 5px;
   background-color:#F5F8FA;
@@ -114,6 +41,35 @@ form p.input_span{
   font-size: 12px; 
   margin-bottom: 5px;
   color: #0064AC;
+}
+#place-search-input{
+    padding: 12px;
+    border-radius: 5px;
+    background-color:#F5F8FA;
+    outline:none;
+    border: none;
+  }
+
+
+/* A few custom styles for date inputs */
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    color: #95a5a6;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 18px;
+    border:1px solid #ecf0f1;
+    background:#ecf0f1;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+input[type="date"], focus {
+    color: #95a5a6;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
 }
 form button{
   text-align: center;
@@ -143,58 +99,3 @@ form button{
 .checkbox{
   display: block;
  }
-
-/*bottomNav css*/ 
-.bottomNav{
-  background:white;
-  height: 100px;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  }
-
-
-.toggle1 {
-font-size: 25px;
-margin-left: 5%;
-float: left;
-line-height: 100px;
-font-weight: 400;
-
-}
-.bottomNav .toggle1 a {
-  padding:15px;
-  color:#0064AC;
-  }
-  nav .toggle1 a:hover {
-  opacity: 0.6;
-  }
-.bottomNav .toggle1 a:hover {
-      opacity: 0.6;
-      }
-.bottomNav .socialtop1{
-  font-size: 25px;
-  float: right;
-  margin-right: 5%;
-  font-weight: 400;
-  line-height: 100px;
-}
-.bottomNav .top-social1 a {
-padding:15px;
-color:#0064AC;
-}
-.bottomNav .top-social1 a:hover {
-opacity: 0.6;
-}
-
-
-.bottomNav .label_cnas a{
-  position: absolute;
-  left: 23%;
-  top: 40%;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 700;
-  text-transform:uppercase;
-  color:#0064AC;
-  }
