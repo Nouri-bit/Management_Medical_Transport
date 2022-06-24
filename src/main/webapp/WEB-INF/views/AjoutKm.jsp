@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,20 +42,22 @@
     </nav>
 
 <h1>Les séances</h1>
+    <form action="<%= request.getContextPath() %>/Kelomtrage" method="post" >
 <div class="main">
 <div>
-    
+    <c:forEach items="${products}" var="compte">
     <div class="séance">
-        
+       
         <div>
             <div >
-                <h1 name="titre">seance 1</h1>
-                 <p name="date">date</p>
+             
+                <h1 >${compte.titre}</h1>
+                 <p >${compte.date}</p>
                 <p>texte descriptif</p>
-                <form id="form">
+            
                     <input type="text" name="kmreel" />
-                </form>
-                <p id="kmtxt"> <b name="kmreel"> </b> km</p>
+                    <input type="hidden" type="text" name="idseance">
+                <p id="kmtxt"> <b >${compte.kmreel} </b> km</p>
                 
                     <button id="btn">Ajouter Km</button>
                     <script>
@@ -92,16 +95,18 @@
 
                         
                         </script>
+                     
             </div>
         </div>
         <hr style="height:1px;border:none;color:rgb(168, 168, 168);background-color:rgb(168, 168, 168)" />
+          
     </div>
-    
+    </c:forEach> 
 </div>
 
 
-
 </div>
+</form>
             <nav class="bottomNav">
                 <label class="toggle1">
                         <div class='top-social1'>

@@ -3,6 +3,13 @@ package net.model;
 import java.util.Date;
 
 public class Seance {
+private int idseance; 
+public int getIdseance() {
+	return idseance;
+}
+public void setIdseance(int idseance) {
+	this.idseance = idseance;
+}
 private String titre;
 private int type;
 private int tranche; 
@@ -12,6 +19,16 @@ private String  jour;
 private float kmreel;
 private Date date;
 private Long idChauffeur;
+private String etat; 
+public Seance() {
+	super();
+}
+public String getEtat() {
+	return etat;
+}
+public void setEtat(String etat) {
+	this.etat = etat;
+}
 public Date getDate() {
 	return date;
 }

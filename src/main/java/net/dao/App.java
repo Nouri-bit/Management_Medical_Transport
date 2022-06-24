@@ -29,8 +29,8 @@ public class App {
         	String tes = getDayStringOld(new Date(06-25-2022) , new  Locale("fr"));
         	System.out.println(new Date());
         	System.out.println(tes);
-        	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        	Date dt = simpleDateFormat.parse("20/06/2022");
+        	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
+        	Date dt = simpleDateFormat.parse("Fri Jun 24 09:48:58 UTC 2022");
         	Calendar cc = Calendar.getInstance();
 	        cc.setTime(dt);
 	        cc.add(Calendar.DATE, 1);

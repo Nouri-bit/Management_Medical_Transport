@@ -9,18 +9,17 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>-->
-   
+  <!--  <dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20210307</version>
+</dependency> -->
 <filter>
     <filter-name>RestrictionFilter</filter-name>
     <filter-class>net.controller.RestrictionFilter</filter-class>
 </filter>
-<filter-mapping>
+<!--  <filter-mapping>
     <filter-name>RestrictionFilter</filter-name>
     <url-pattern>/restreint/*</url-pattern>
-</filter-mapping>
-<dependency>
-    <groupId>org.json</groupId>
-    <artifactId>json</artifactId>
-    <version>20210307</version>
-</dependency>
+</filter-mapping>-->
 </web-app>
