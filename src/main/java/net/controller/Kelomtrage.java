@@ -44,6 +44,7 @@ public class Kelomtrage extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Float kmreel=Float.parseFloat(req.getParameter("kmreel"));
+		System.out.println(req.getParameter("idseance"));
 		int idseance=Integer.parseInt(req.getParameter("idseance"));
 		Seance ss = new Seance();
 		System.out.println(kmreel);

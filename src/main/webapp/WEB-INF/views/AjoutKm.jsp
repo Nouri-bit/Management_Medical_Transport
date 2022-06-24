@@ -42,22 +42,25 @@
     </nav>
 
 <h1>Les séances</h1>
+<c:forEach items="${products}" var="compte">
     <form action="<%= request.getContextPath() %>/Kelomtrage" method="post" >
 <div class="main">
 <div>
-    <c:forEach items="${products}" var="compte">
+    
     <div class="séance">
        
         <div>
             <div >
              
-                <h1 >${compte.titre}</h1>
+                <h2 >${compte.titre}</h2>
                  <p >${compte.date}</p>
-                <p>texte descriptif</p>
+                 <p >${compte.idpatient}</p>
+                
+                <p>${compte.etat}</p>
             
                     <input type="text" name="kmreel" />
-                    <input type="hidden" type="text" name="idseance">
-                <p id="kmtxt"> <b >${compte.kmreel} </b> km</p>
+                    <input type="hidden" name="idseance" value="${compte.idseance}">
+                <p > <b >${compte.kmreel} </b> km</p>
                 
                     <button id="btn">Ajouter Km</button>
                     <script>
@@ -101,12 +104,22 @@
         <hr style="height:1px;border:none;color:rgb(168, 168, 168);background-color:rgb(168, 168, 168)" />
           
     </div>
-    </c:forEach> 
+   
 </div>
 
 
 </div>
 </form>
+<br><br>
+<br><br>
+<br> <br>
+<br><br>
+<br><br>
+<br> <br>
+<br><br>
+<br><br>
+<br> <br>
+ </c:forEach> 
             <nav class="bottomNav">
                 <label class="toggle1">
                         <div class='top-social1'>
