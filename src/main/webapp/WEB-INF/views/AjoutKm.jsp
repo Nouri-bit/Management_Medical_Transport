@@ -18,33 +18,12 @@
 
 </head>
 <body>
-    <nav class="topNav">
-        <label class="toggle">
-            <i class="fa fa-bars"></i>
-        </label>
-        <ul>
-           <li><a href='#'>Ajouter une demande</a></li>
-           <li><a href='#'>Tableau des écarts</a></li>
-           <li><a href='#'>Planning </a></li>
-           <li><a href='#'>Cartographie</a></li>
-           <li><a href='#'>Remboursements</a></li>
-        </ul> 
-        <div class="logo_cnas">
-            <a href=""><img src="images/logo_CNAS.png" width="80px" height="60px"/></a>
-        </div>
-        <div class="socialtop">
-            <div class='top-social'>
-                <a href='#'><i class="fa-regular fa-envelope"></i></a>
-                <a href='#'><i class="fa-regular fa-bell"></i></a>
-                <a href='#'><i class="fa-regular fa-circle-user"></i></a>
-            </div>
-        </div>
-    </nav>
+<%@ include file="topnav.jsp" %>
 
-<h1>Les séances</h1>
-<c:forEach items="${products}" var="compte">
-    <form action="<%= request.getContextPath() %>/Kelomtrage" method="post" >
+<h1>Mes séances</h1>
 <div class="main">
+<c:forEach items="${products}" var="compte">
+<form action="<%= request.getContextPath() %>/Kelomtrage" method="post" >
 <div>
     
     <div class="séance">
@@ -52,53 +31,20 @@
         <div>
             <div >
              
-                <h2 >${compte.titre}</h2>
-                 <p >${compte.date}</p>
-                 <p >${compte.idpatient}</p>
+                <h2>${compte.titre}</h2>
+                 <p>${compte.date}</p>
+                 <p>${compte.idpatient}</p>
                 
-                <p>${compte.etat}</p>
+                 <p>${compte.etat}</p>
             
-                    <input type="text" name="kmreel" />
                     <input type="hidden" name="idseance" value="${compte.idseance}">
+                <c:if test="${compte.kmreel==0.0}">
+                	<input type="text" name="kmreel" />
+                    <input type="hidden" name="idseance" value="${compte.idseance}">
+                	<button id="btn">Ajouter Km</button>
+                </c:if>
                 <p > <b >${compte.kmreel} </b> km</p>
-                
-                    <button id="btn">Ajouter Km</button>
-                    <script>
-                        const btn = document.getElementById('btn');
-                    
-                        btn.addEventListener('click', () => {
-                          const kmtxt=document.getElementById('kmtxt');
-                          const form = document.getElementById('form');
-                          if(btn.innerHTML == "Ajouter Km" || btn.innerHTML == "Modifier")
-                          {
-                            kmtxt.style.visibility = 'hidden';
-                            form.style.display = 'block';
-                           btn.innerHTML = "Sauvgarder";
-                            btn.style.backgroundColor="#895aee"
-                        } 
-                           else{
-                            if(btn.innerHTML == "Sauvgarder")
-                          {  
-                            
-                           form.style.display = 'none';
-                           kmtxt.style.visibility = 'visible';
-                           btn.innerHTML = "Modifier";} 
-                           }
-                    
-
-                          
-                          /*if (kmtxt.style.visibility === 'hidden') {
-                            kmtxt.style.visibility = 'visible';
-                            } else {
-                            kmtxt.style.visibility = 'hidden';
-                            }*/
-                        });
-                        
-                       
-
-                        
-                        </script>
-                     
+         
             </div>
         </div>
         <hr style="height:1px;border:none;color:rgb(168, 168, 168);background-color:rgb(168, 168, 168)" />
@@ -108,41 +54,13 @@
 </div>
 
 
-</div>
+
 </form>
-<br><br>
-<br><br>
-<br> <br>
-<br><br>
-<br><br>
-<br> <br>
-<br><br>
-<br><br>
-<br> <br>
+
  </c:forEach> 
-            <nav class="bottomNav">
-                <label class="toggle1">
-                        <div class='top-social1'>
-                            <a href='#'><i class="fa-solid fa-house"></i></a>
-                            <a href='https://web.facebook.com/'><i class="fa-brands fa-facebook"></i></a>
-                        </div>
-                </label>
-                <div class="label_cnas">
-                    <a href=""><img/>Caisse Nationale des Assurances Sociales des Travailleurs Salariés</a>
-                </div>
-                <div class="socialtop1">
-                    <div class='top-social1'>
-                        <a href='#'><i class="fa-solid fa-circle-question"></i></a>
-                        <a href='https://www.youtube.com/'><i class="fa-brands fa-youtube"></i></a>
-                    </div>
-                </div>
-            </nav>
-            <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-            <script>
-                $('.toggle i').click(function () {
-                    $('ul').toggleClass("show");
-                });
-            </script>
+ </div>
+ 
+ 
 
 </body>
 </html>
