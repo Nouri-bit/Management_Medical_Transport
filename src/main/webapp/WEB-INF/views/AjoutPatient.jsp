@@ -94,7 +94,7 @@
        <input  name="date" type="date" required> 
          
     </div>
-    <p class="input_span"><span>Numéro de sécurité social</span></p>
+    <p class="input_span"><span>Les jours : </span></p>
     <dev class="container">
       <div class="column">
           <div class="card">
