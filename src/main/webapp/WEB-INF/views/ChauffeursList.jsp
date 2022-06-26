@@ -33,7 +33,26 @@
 </div>
 </form>
 
-<%@ include file="bottomnav.jsp" %>
+<footer>
+    <nav class="bottomNav">
+        <label class="toggle1">
+                <div class='top-social1'>
+                    <a href='#'><i class="fa-solid fa-house"></i></a>
+                    <a href='https://web.facebook.com/'><i class="fa-brands fa-facebook"></i></a>
+                </div>
+        </label>
+        <div class="label_cnas">
+            <a href=""><img/>Caisse Nationale des Assurances Sociales des Travailleurs Salariés</a>
+        </div>
+        <div class="socialtop1">
+            <div class='top-social1'>
+                <a href='#'><i class="fa-solid fa-circle-question"></i></a>
+                <a href='https://www.youtube.com/'><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav>  
+  </footer>  
+
   
 </body>
 </html>
