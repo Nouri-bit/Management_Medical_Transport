@@ -14,12 +14,4 @@
     <artifactId>json</artifactId>
     <version>20210307</version>
 </dependency> -->
-<filter>
-    <filter-name>RestrictionFilter</filter-name>
-    <filter-class>net.controller.RestrictionFilter</filter-class>
-</filter>
-<!--  <filter-mapping>
-    <filter-name>RestrictionFilter</filter-name>
-    <url-pattern>/restreint/*</url-pattern>
-</filter-mapping>-->
 </web-app>

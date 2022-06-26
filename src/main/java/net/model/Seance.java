@@ -1,7 +1,7 @@
 package net.model;
 
+import java.math.BigInteger;
 import java.util.Date;
-
 public class Seance {
 private int idseance; 
 public int getIdseance() {
@@ -18,7 +18,7 @@ private Long idpatient;
 private String  jour;
 private float kmreel;
 private Date date;
-private Long idChauffeur;
+private Long idchauffeur;
 private String etat; 
 public Seance() {
 	super();
@@ -35,12 +35,7 @@ public Date getDate() {
 public void setDate(Date date) {
 	this.date = date;
 }
-public Long getIdChauffeur() {
-	return idChauffeur;
-}
-public void setIdChauffeur(Long idChauffeur) {
-	this.idChauffeur = idChauffeur;
-}
+
 public float getKmreel() {
 	return kmreel;
 }
@@ -83,5 +78,12 @@ public Long getIdpatient() {
 public void setIdpatient(Long idpatient) {
 	this.idpatient = idpatient;
 }
+public Long getIdchauffeur() {
+	return idchauffeur;
+}
+public void setIdchauffeur(Long idchauffeur) {
+	this.idchauffeur = idchauffeur;
+}
+
 
 }

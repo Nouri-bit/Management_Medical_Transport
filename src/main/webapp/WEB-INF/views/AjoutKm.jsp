@@ -33,14 +33,22 @@
              
                 <h2>${compte.titre}</h2>
                  <p>${compte.date}</p>
+           
                  <p>${compte.idpatient}</p>
-                
+                 <p>${compte.idchauffeur}</p>
                  <p>${compte.etat}</p>
-            
+
+                 <input type="hidden" name="idpatient" value="${compte.idpatient}">
+                    <input type="hidden" name="idchauffeur" value="${compte.idchauffeur}">
+                   
                     <input type="hidden" name="idseance" value="${compte.idseance}">
-                <c:if test="${compte.kmreel==0.0}">
+                   
+                	
+                <c:if test="${compte.kmreel == 0.0}">
                 	<input type="text" name="kmreel" />
                     <input type="hidden" name="idseance" value="${compte.idseance}">
+                    <input type="hidden" name="idpatient" value="${compte.idpatient}">
+                    <input type="hidden"  name="idchauffeur" value="${compte.idchauffeur}">
                 	<button id="btn">Ajouter Km</button>
                 </c:if>
                 <p > <b >${compte.kmreel} </b> km</p>
