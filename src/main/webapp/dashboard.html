@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link href="dashboard.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <link href="images/logo_CNAS.png">
@@ -23,7 +23,7 @@
            <li><a href='#'>Remboursements</a></li>
         </ul> 
         <div class="logo_cnas">
-            <a href=""><img src="images/logo_CNAS.png" width="80px" height="60px"/></a>
+            <a href=""><img src="https://elhanaa.cnas.dz/resources/images/cnasfond.png" width="50px" /></a>
         </div>
         <div class="socialtop">
             <div class='top-social'>
@@ -38,24 +38,24 @@
     <div class="col_left" >
       <div class="topboxes">
         <div class="topbox" >
-          <img class="icon" src="notif.png" alt="icon">
+          <img class="icon" src="pec.png" alt="icon" width="50px">
           <h4 id="nb_pec">1</h4>
           Prise en charge
         </div>
         <div class="topbox" >
-          <img class="icon" src="notif.png" alt="icon">
-          <h4 id="nb_reclam">15</h4>
+          <img class="icon" src="warning.png" alt="icon" width="50px">
+          <h4 id="nb_reclam">8</h4>
           reclamations
         </div>
         <div class="topbox">
-          <img class="icon" src="notif.png" alt="icon">
+          <img class="icon" src="bell.png" alt="icon" width="50px">
           <h4 id="nb_notif">2</h4>
           notifications
         </div>
       </div>
       <div id="graph">
      
-            <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+            <canvas id="myChart" style="width: 600px;"></canvas>
   
             <script>
               var xValues = ["jan","fev","mar","avr","mai","jun","jul","aout","spt","oct","nov","des"];
@@ -65,15 +65,16 @@
                 data: {
                   labels: xValues,
                   datasets: [{ 
-                    data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+                    data: [860,1140,1060,1060,1070],
                     borderColor: "red",
-                    fill: false
+                    fill: false,
+                    title:"2022"
                   }, { 
-                    data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+                    data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000,4000,2000],
                     borderColor: "green",
                     fill: false
                   }, { 
-                    data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+                    data: [300,700,2000,5000,6000,4000,2000,1000,2000,1500,800,1000],
                     borderColor: "blue",
                     fill: false
                   }]
@@ -81,7 +82,7 @@
                 options: {
                   title: {
                   display: true,
-                  text: "Rembourcement"
+                  text: "Remboursement"
                   },
                   legend: {display: false}
                 }
@@ -92,10 +93,10 @@
     </div>
     <div class="col_side">
       <div class="sidebox" >
-            <canvas id="recChart" style="width:100%;max-width:600px"></canvas>
+            <canvas id="recChart" style="width:100%;max-width:600px ; min-width: 400px;"></canvas>
   
             <script>
-            var xValues = ["traitées", "non traitées"];
+            var xValues = ["traitÃ©es", "non traitÃ©es"];
             var yValues = [55, 49];
             var barColors = [
               "#b91d47",
@@ -126,10 +127,10 @@
       </div>
       <div class="sidebox">
        
-          <canvas id="pecChart" style="width:100%;max-width:600px"></canvas>
+          <canvas id="pecChart" style="width:100%;max-width:600px ; min-width: 400px;"></canvas>
   
           <script>
-          var xValues = ["validées", "non validées"];
+          var xValues = ["validÃ©es", "non validÃ©es"];
           var yValues = [55, 49];
           var barColors = [
             "#b91d47",
@@ -157,9 +158,9 @@
               </div>
   
       <div class="sidebox">
-        <canvas id="demChart" style="width:100%;max-width:600px"></canvas>
+        <canvas id="demChart" style="width:100%;max-width:600px ; min-width: 400px;"></canvas>
         <script>
-        var xValues = ["scannées", "non scannées"];
+        var xValues = ["scannÃ©es", "non scannÃ©es"];
         var yValues = [0, 10];
         var barColors = [
           "#b91d47",
@@ -196,7 +197,7 @@
                 </div>
         </label>
         <div class="label_cnas">
-            <a href=""><img/>Caisse Nationale des Assurances Sociales des Travailleurs Salariés</a>
+            <a href=""><img/>Caisse Nationale des Assurances Sociales des Travailleurs SalariÃ©s</a>
         </div>
         <div class="socialtop1">
             <div class='top-social1'>

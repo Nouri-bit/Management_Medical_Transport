@@ -4,44 +4,57 @@ body{
   margin: 0;
   font-family: Roboto, Courier, monospace;
   color:#0064ACff;
+  height: 800px;
 }
 .row{
+  
   display: grid;
+  justify-content: center;
+  align-content: center;
   gap: 20px;
   grid-template-columns: 3fr  2fr;
-  padding: 100px;
+  padding: 70px;
+  padding-bottom: 100px;
   
 }
 .col_left{ 
   display: grid;
-  gap:4%;
+  gap:3%;
   grid-template-rows: 3fr 7fr;
+  justify-content: center;
+  
+
 }
 .col_side{
   display: grid;
   gap: 1%;
   grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
+  align-content: center;
+  margin-top: 10px;
 }
 .topboxes{
+  width: fit-content;
   display: grid;
+  grid-auto-flow: column;
   gap: 20px;
   grid-template-columns: 1fr  1fr 1fr;
-  margin: 10px;
-  margin-top: 40px;
+  margin: 5px;
+  margin-top: 0px;
   padding: 5px;
   border-radius: 50px;
 }
 .topbox{
   background-color:aliceblue;
   border-radius: 10px;
-  padding: 10px;
+  padding:40px;
   text-align: center;
   justify-content: center;
   align-items: center;
   box-shadow: -1px 2px 4px 1px #0064ACff;
 }
 .icon{
-  border-radius: 50%;
+  
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -49,10 +62,11 @@ body{
   align-items: center;
 }
 #graph{
+  width: fit-content;
   padding: 10px;
   margin: 10px;
   margin-top: 0px;
-  border-radius: 50px;
+  border-radius: 10px;
   background-color: aliceblue;
   text-align: center;
   box-shadow: -1px 2px 4px 1px #0064ACff;
@@ -62,9 +76,10 @@ body{
   
 }
 .sidebox{
+  width: fit-content;
   background-color: aliceblue;
   padding: 10px;
-  margin: 40px;
+  margin: 10px;
   margin-top: 5px;
   border-radius: 10px;
   box-shadow: -1px 2px 4px 1px #0064ACff;
