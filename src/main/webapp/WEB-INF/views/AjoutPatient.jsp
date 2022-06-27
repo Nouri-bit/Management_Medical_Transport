@@ -90,6 +90,10 @@
        <input name="prenom" type="text" required maxlength="25">
        <p class="input_span" ><span>Addresse complète</span></p>
        <input name="Addresse" type="search" id="place-search-input" placeholder="Entrer une addresse" required>
+       <p class="input_span" ><span>Structure sanitaire</span></p>
+       <input name="addresseh" type="search" id="place-search-input2" placeholder="Addresse de la structure sanitaire" required>
+       
+       
        <p class="input_span" ><span>Date début </span></p>
        <input  name="date" type="date" required> 
          
@@ -208,6 +212,10 @@
 				key: '5rbG94EZ1CBfSDepJwvayTwiYOG5Fgm9',
 				container: document.querySelector('#place-search-input')
 				});
+				placeSearch({
+					key: '5rbG94EZ1CBfSDepJwvayTwiYOG5Fgm9',
+					container: document.querySelector('#place-search-input2')
+					});
 			</script>
 
    <%@ include file="bottomnav.jsp" %>
