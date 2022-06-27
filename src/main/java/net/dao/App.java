@@ -7,17 +7,35 @@ import org.json.simple.parser.JSONParser;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class App {
-
+	public static String getDayStringOld(Date date, Locale locale) {
+	    DateFormat formatter = new SimpleDateFormat("EEEE", locale);
+	    return formatter.format(date);
+	}
     public static void main(String[] args) {
         try {
         	/*******
         	 * donner X, y d'une @dresse 
         	 * 
         	 **********/
+        	String tes = getDayStringOld(new Date(06-25-2022) , new  Locale("fr"));
+        	System.out.println(new Date());
+        	System.out.println(tes);
+        	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
+        	Date dt = simpleDateFormat.parse("Fri Jun 24 09:48:58 UTC 2022");
+        	Calendar cc = Calendar.getInstance();
+	        cc.setTime(dt);
+	        cc.add(Calendar.DATE, 1);
+	        dt = cc.getTime();
+	        System.out.println(dt);
            String queryy= "Washington DC Budget Office";
             URL url = new URL("http://www.mapquestapi.com/geocoding/v1/address?key=5rbG94EZ1CBfSDepJwvayTwiYOG5Fgm9&location=Washington%20DC%20Budget%20Office");
 
@@ -41,10 +59,19 @@ public class App {
                 }
                 //Close the scanner
                 scanner.close();
-
+                double pi = 3.1415/180;
                 //System.out.println(informationString);
-
-
+                double distance = 6371*Math.acos((Math.sin(40.69196*pi)*Math.sin(40.65651*pi))+ ((Math.cos(40.65651*pi)*Math.cos(40.69196*pi)*(Math.cos((-89.48181+76.09676)*pi))))) ;
+                System.out.println(Math.sin(51)*Math.sin(51)+ (Math.cos(51)*Math.cos(51)*(Math.cos(1))));
+                System.out.println(Math.sqrt((51*51)+(1)));
+                System.out.println(Math.acos(Math.sin(51)*Math.sin(51)+ (Math.cos(51)*Math.cos(51)*(Math.cos(1)))));
+                System.out.println(Math.acos(0.99993968));
+               
+                //double cossin= Math.cos(51*pi);
+                
+                System.out.println("la distance "+distance);
+                //System.out.println("sin "+Math.sin(51*pi));
+              //  System.out.println("cos "+Math.cos(1*pi));
                 //JSON simple library Setup with Maven is used to convert strings to JSON
                 JSONParser parse = new JSONParser();
                 JSONObject dataObject = (JSONObject) parse.parse(String.valueOf(informationString));
@@ -87,6 +114,7 @@ public class App {
                    String Y = ((ArrayList) dataObject2.get("distance")).toArray()[1].toString();
                     double XX =	 new Double(X);
                     double YY =	 new Double(Y);
+                    System.out.println(Math.sqrt(2));
                     System.out.println(Math.sqrt((XX*XX)+(YY*YY)));
                     //System.out.println()
                     //JSONObject  dd= (JSONObject) ((ArrayList) dataObject2.get("d istance")).toArray()[0];

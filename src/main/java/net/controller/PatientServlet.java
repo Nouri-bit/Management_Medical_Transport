@@ -2,7 +2,10 @@ package net.controller;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -59,8 +62,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		Long NSS= Long.parseLong(request.getParameter("nss"));
 		int type= Integer.parseInt(request.getParameter("type"));
 		int tranche= Integer.parseInt(request.getParameter("tranche"));
-		Boolean attente=Boolean.parseBoolean(request.getParameter("attente")); 
-		//String titre=request.getParameter("titre");
+		Boolean attente=Boolean.parseBoolean(request.getParameter("attente"));
+		SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("MM-dd-yyyy");
+		try {
+			Date  date=simpleDateFormat2.parse(request.getParameter("date"));
+			
+		
+		
 		String [] jour=request.getParameterValues("jour");
 		
 		
@@ -79,6 +87,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			seance.setType(type);
 			seance.setAttente(attente);
 			seance.setTranche(tranche);
+			seance.setDate(date);
 			seance.setJour(jour[i]);
 			sseance.add(seance);
 			//seance=null;
@@ -90,6 +99,10 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			p.ajoutPatient(patient, sseance);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+		}
+} catch (ParseException e1) {
+			
+			e1.printStackTrace();
 		}
 		
          RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/Ajoutpatientdetails.jsp");

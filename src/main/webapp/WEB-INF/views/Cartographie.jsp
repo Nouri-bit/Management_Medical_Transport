@@ -4,12 +4,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Cartographie</title>
+<style>
+body{
+  background-color: #6EAFC9;
+  text-transform:uppercase;
+  margin: 0%;
+  padding: 0%;
+  padding-top: 60px;
+  font-family: Roboto, Courier, monospace;
+}
+#googleMap{
+z-index: 10;}
+</style>
 </head>
 <body>
-
-
-<div id="googleMap" style="width:100%;height:500px;"></div>
+ <%@ include file="topnav.jsp" %>
+ <div id="googleMap" style="width:100%;height:800px;"></div>
 
 <script>
 function myMap() {
@@ -66,5 +77,6 @@ const contentString =
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGR_HXyljWdIP4waW2IbgF1cKgAPnet8A&callback=myMap"></script>
 
+  <%@ include file="bottomnav.jsp" %>
 </body>
 </html>

@@ -1,7 +1,15 @@
 package net.model;
 
-
+import java.math.BigInteger;
+import java.util.Date;
 public class Seance {
+private int idseance; 
+public int getIdseance() {
+	return idseance;
+}
+public void setIdseance(int idseance) {
+	this.idseance = idseance;
+}
 private String titre;
 private int type;
 private int tranche; 
@@ -9,13 +17,33 @@ private boolean attente;
 private Long idpatient;
 private String  jour;
 private float kmreel;
-private Long idChauffeur;
-public Long getIdChauffeur() {
-	return idChauffeur;
+private Date date;
+private double distance; 
+private Long idchauffeur;
+private String etat; 
+
+public double getDistance() {
+	return distance;
 }
-public void setIdChauffeur(Long idChauffeur) {
-	this.idChauffeur = idChauffeur;
+public void setDistance(double distance2) {
+	this.distance = distance2;
 }
+public Seance() {
+	super();
+}
+public String getEtat() {
+	return etat;
+}
+public void setEtat(String etat) {
+	this.etat = etat;
+}
+public Date getDate() {
+	return date;
+}
+public void setDate(Date date) {
+	this.date = date;
+}
+
 public float getKmreel() {
 	return kmreel;
 }
@@ -58,5 +86,12 @@ public Long getIdpatient() {
 public void setIdpatient(Long idpatient) {
 	this.idpatient = idpatient;
 }
+public Long getIdchauffeur() {
+	return idchauffeur;
+}
+public void setIdchauffeur(Long idchauffeur) {
+	this.idchauffeur = idchauffeur;
+}
+
 
 }

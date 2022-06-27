@@ -1,10 +1,10 @@
 package net.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 import org.json.simple.JSONArray;
 import org.json.JSONException;
@@ -14,6 +14,8 @@ import org.json.simple.parser.JSONParser;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.sql.*;
 import net.model.Patient;
 import net.model.Seance;
@@ -28,13 +30,17 @@ public class Patientdao {
             }
         });
     }
+	public static String getDayStringOld(Date date, Locale locale) {
+	    DateFormat formatter = new SimpleDateFormat("EEEE", locale);
+	    return formatter.format(date);
+	}
 	public int [] ajoutPatient(Patient patient, List <Seance> seance) throws ClassNotFoundException{
 		String sql= "INSERT INTO public.patient(\r\n"
 				+ "	nss, nom, prenom, addresse)\r\n"
 				+ "	VALUES (?, ?, ?, ?);";
 		String sql2= "INSERT INTO public.seance(\r\n"
-				+ "	titre, type, attente, idpatient, tranche, jour, idchauffeur, etat)\r\n"
-				+ "	VALUES ( ?, ?, ?, ?, ?, ?, ?, ?);";
+				+ "	titre, type, attente, idpatient, tranche, jour, idchauffeur, etat, date)\r\n"
+				+ "	VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 		
 		String sqql= "SELECT idoperateur,addresse\r\n"
 				+ "	FROM public.operateur;";
@@ -64,13 +70,61 @@ public class Patientdao {
 					statement2.setString(6,Sa.getJour());
 					statement2.setString(8,"Non valide");
 					statement2.setLong(4,patient.getNSS());
+					String test = getDayStringOld(Sa.getDate() , new  Locale("fr"));
+					System.out.println(test); 
+					System.out.println(Sa.getJour()); 
+					System.out.println(Sa.getJour().equals(test)); 
+					if (Sa.getJour().equals(test)) {
+						statement2.setString(9,""+Sa.getDate());
+						System.out.println("cas parfait "); 
+						System.out.println(!Sa.getJour().equals(test));
+			        	System.out.println(Sa.getJour().equals(test)== false);
+					}
+					
+					else {
+						//SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+			        	Date dt = Sa.getDate();
+						while(!Sa.getJour().equals(test)){
+							Calendar c = Calendar.getInstance();
+					        c.setTime(dt);
+					        c.add(Calendar.DATE, 1);
+					        dt = c.getTime();
+						 test = getDayStringOld((Date)dt,  new  Locale("fr"));
+						 System.out.println(test);
+						 System.out.println(dt); 
+						}
+						statement2.setString(9,""+dt);}
+						//statement2.setString(9,""+Sa.getDate());
+					
 					//Statement statementt2=connection.createStatement();
+					String sqlbo= "SELECT nss numero FROM public.\"chauffeur \"\r\n"
+							+ "				WHERE  type=? and nss not in \r\n"
+							+ "				(SELECT numero FROM\r\n"
+							+ "				(SELECT ch.nss numero, count(*) compte, s.tranche tr, s.jour j \r\n"
+							+ "				FROM public.\"chauffeur \" ch, public.\"seance\" s , public.\"patient\" p \r\n"
+							+ "				where s.jour=? and s.tranche =?  and ch.nss= s.idchauffeur and p.nss= s.idpatient \r\n"
+							+ "				group by s.jour , s.tranche , ch.nss\r\n"
+							+ "				order by count(*) , numero\r\n"
+							+ "				)resultat\r\n"
+							+ "				) \r\n"
+							+ "				FETCH FIRST 1 ROWS ONLY	\r\n"
+							+ "					;";
 					String sql3= "SELECT j, tr, ty, numero, idd FROM\r\n"
 							+ "							(SELECT ch.nss numero, count(*) compte, s.tranche tr, s.jour j, s.type ty , o.idoperateur idd \r\n"
 							+ "							FROM public.\"chauffeur \" ch, public.\"seance\" s , public.\"patient\" p , public.\"operateur\" o\r\n"
 							+ "							where s.jour=? and s.tranche =? and s.type=?  and ch.idoperateur=? and ch.nss= s.idchauffeur and p.nss= s.idpatient \r\n"
 							+ "                             and o.idoperateur=ch.idoperateur \r\n"
 							+ "							group by s.jour , s.tranche , ch.nss, s.type, o.idoperateur\r\n"
+							+ "							having count(*) <2\r\n"
+							+ "							order by count(*) , numero)\r\n"
+							+ "							resultat\r\n"
+							+ "							FETCH FIRST 1 ROWS ONLY	;"; 
+					String sql33= "SELECT j, tr, ty, numero FROM\r\n"
+							+ "							(SELECT ch.nss numero, count(*) compte, s.tranche tr, s.jour j, s.type ty  \r\n"
+							+ "							FROM public.\"chauffeur \" ch, public.\"seance\" s , public.\"patient\" p\r\n"
+							+ "							where s.jour=? and s.tranche =? and s.type=?  and ch.nss= s.idchauffeur and p.nss= s.idpatient \r\n"
+							+ "                              \r\n"
+							+ "							group by s.jour , s.tranche , ch.nss, s.type\r\n"
 							+ "							having count(*) <2\r\n"
 							+ "							order by count(*) , numero)\r\n"
 							+ "							resultat\r\n"
@@ -88,12 +142,14 @@ public class Patientdao {
 							+ "				FETCH FIRST 1 ROWS ONLY	\r\n"
 							+ "					;";
 					
+					
 					PreparedStatement preparedStatement1 = connection.prepareStatement(sql3);
 					PreparedStatement preparedStatement2 = connection.prepareStatement(sql4);
 					PreparedStatement preparedStatementt = connection.prepareStatement(sqql);
 					preparedStatement1.setString(1, Sa.getJour());
 					preparedStatement1.setInt(2, Sa.getTranche());
 					preparedStatement1.setInt(3, Sa.getType());
+					
 					//System.out.println(sql3);
 					preparedStatement2.setString(3, Sa.getJour());
 					preparedStatement2.setInt(4, Sa.getTranche());
@@ -144,25 +200,52 @@ public class Patientdao {
 								System.out.println((int) distances[k][1]);
 								preparedStatement1.setInt(4, (int) distances[k][1]);
 								preparedStatement2.setInt(2,(int) distances[k][1]);
-								ResultSet rs = preparedStatement1 .executeQuery();
+								ResultSet rs = preparedStatement1.executeQuery();
 								ResultSet rs2 = preparedStatement2.executeQuery(); 
-								 if (rs2.next() && (k<distances.length)){
-									 System.out.println("cas jdid "); 
-										statement2.setInt(7, rs2.getInt("numero"));
-										tab[i]=statement2.executeUpdate();
-										trouv=true; 
+								if (k<distances.length){
+									if (rs2.next() ){
+										//// cas jdid mais tjr la distance est minimal 
+										
+											statement2.setInt(7, rs2.getInt("numero"));
+											tab[i]=statement2.executeUpdate();
+											trouv=true; 
+										}
+										////cas 9dim mais tjr la distance est minimal   
+										else if(rs.next()) {
+											
+											statement2.setInt(7,rs.getInt("numero"));
+											tab[i]=statement2.executeUpdate();
+											trouv=true; 
+										}
+										
+								
+									k++;
+								}
+								else {
+									// khas des requetes jded 
+									// sans l'aspect distance voila !! 
+									PreparedStatement preparedStatement11 = connection.prepareStatement(sql33);
+									PreparedStatement preparedStatement14= connection.prepareStatement(sqlbo);
+									preparedStatement14.setString(2, Sa.getJour());
+									preparedStatement14.setInt(3, Sa.getTranche());
+									preparedStatement14.setInt(1, Sa.getType());
+									ResultSet rs14 = preparedStatement14.executeQuery();
+									preparedStatement11.setString(1, Sa.getJour());
+									preparedStatement11.setInt(2, Sa.getTranche());
+									preparedStatement11.setInt(3, Sa.getType());
+									ResultSet rs1 = preparedStatement11.executeQuery();
+									if (rs14.next()) {
+										statement2.setInt(7,rs14.getInt("numero"));
 									}
-									
-									else if(rs.next() && (k<distances.length)) {
-										System.out.println("cas 9dim "); 
-										statement2.setInt(7,rs.getInt("numero"));
-										tab[i]=statement2.executeUpdate();
-										trouv=true; 
+									else if (rs1.next()) {
+										statement2.setInt(7,rs1.getInt("numero"));
 									}
 									else {
-										System.out.println("mazal  ");		}
-							
-								k++;
+										/// cas t3 makanch les chauffeurs 
+										System.out.println("Le système est saturé, tous les chauffeurs ont été affectés ");
+									}
+								}
+								 
 								
 							}
 					
