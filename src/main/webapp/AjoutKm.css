@@ -27,7 +27,7 @@ td{
 
 .main{
 
-    width: fit-content;
+    width: 50%;
 	  background-color: white;
 	  display: block;
   	justify-content: center;
@@ -41,10 +41,10 @@ td{
     border-radius: 10px;
     box-shadow: -2px 2px 5px 2px #0064ACff;
     position: absolute;
-    left:40%;
+    left:25%;
 }
 .séance{
-    width: 500px;
+   
     border-left: 4px solid #0064ACff;
     border-bottom: 1px solid rgba(255,255,255,.25);
     padding-left: 20px;
@@ -61,6 +61,20 @@ td{
     text-decoration: none;
     color: white;
     margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+    border: 0cm;
+  }
+  .btn {
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    background: #0064ACff;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    margin-top: 20px;
+    margin-right: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: 0.5s;
     border: 0cm;
