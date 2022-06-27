@@ -1,7 +1,6 @@
 
 body{
   background-color: #6EAFC9;
-  text-transform:uppercase;
   margin: 0%;
   padding: 0%;
   padding-top: 60px;
@@ -87,7 +86,6 @@ form button{
   background-color: #0064AC;
   outline:none;
   cursor:pointer;
-  text-transform:uppercase;
   margin-top: 20px;
 }
 .container, .container2{

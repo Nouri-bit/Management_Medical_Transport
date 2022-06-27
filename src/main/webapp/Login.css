@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body{
-  background-color: #6EAFC9;
-  text-transform:uppercase;
+  background-color: #6EAFC9;;
   margin: 0%;
   padding: 0%;
 } 
@@ -57,7 +56,6 @@ padding:15px;
 line-height: 45px;
 color: #0064AC;
 font-size:14px;
-text-transform:uppercase;
 text-decoration: none;
 }
 .topNav ul li:hover{
