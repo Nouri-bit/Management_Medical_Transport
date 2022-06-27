@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +16,7 @@
 
 </head>
 <body>
+
   <div class="nav">
     <nav class="topNav">
         <label class="toggle">
@@ -40,16 +41,18 @@
         </div>
     </nav>
 </div>
+
 <div class="aa_htmlTable">
-    <form> 
+   <form action="<%= request.getContextPath() %>/RembourssementServlet" method="get">
+   <c:forEach items="${products}" var="compte">
         <div class="inputs">
           <div class="left">
-            <p class="input_span"><span>Nom et Prénom</span></p>
-            <input type="text" />
+            <p class="input_span"><span>${compte.nom}  ${compte.prenom}</span></p>
+           <!--  <input type="text" />--> 
           </div>
           <div class="right">
-            <p class="input_span" ><span>Numéro de sécurité social</span></p>
-            <input type="number">
+            <p class="input_span" ><span>${compte.nss}</span></p>
+            <!--  <input type="number"> -->
           </div>
         </div>
         <table>
@@ -64,38 +67,16 @@
             </tr>
           </thead>
           <tbody>
+          <c:forEach items="${compte.seance}" var="ce">
               <tr>
-                <td>1/2/2020</td>
-                <td>1</td>
-                <td>59</td>
-                <td>2</td>
-                <td>oui</td>
-                <td>200</td>
+                <td>${ce.date}</td>
+                <td>${ce.tranche}</td>
+                <td>${ce.kmreel}</td>
+                <td>${ce.type}</td>
+                <td>${ce.attente}</td>
+                <td>20</td>
               </tr>
-              <tr>
-                <td>1/2/2020</td>
-                <td>1</td>
-                <td>59</td>
-                <td>2</td>
-                <td>oui</td>
-                <td>200</td>
-              </tr>
-              <tr>
-                <td>1/2/2020</td>
-                <td>1</td>
-                <td>59</td>
-                <td>2</td>
-                <td>oui</td>
-                <td>200</td>
-              </tr>
-              <tr>
-                <td>1/2/2020</td>
-                <td>1</td>
-                <td>59</td>
-                <td>2</td>
-                <td>oui</td>
-                <td>200</td>
-              </tr>
+            </c:forEach>  
           </tbody>
         </table>
         <table>
@@ -107,6 +88,7 @@
             </thead>
           </table>
           <button type="submit">Imprimer</button>
+          </c:forEach>
     </form>
   </div>
     <nav class="bottomNav">

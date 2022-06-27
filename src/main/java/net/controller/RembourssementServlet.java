@@ -27,14 +27,14 @@ public class RembourssementServlet extends HttpServlet {
 				List<Chauffeur> liste = new ArrayList<Chauffeur>();
 				try {
 					
-					liste= ch.liste_chauffeurs();
+					liste= ch.Rembourssement();
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				request.setAttribute("products", liste);
 				 
-		        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/.jsp");
+		        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/remboursement.jsp");
 		        view.forward(request, response);
 	}
 }

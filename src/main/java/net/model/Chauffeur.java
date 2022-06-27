@@ -1,5 +1,7 @@
 package net.model;
 
+import java.util.ArrayList;
+
 public class Chauffeur {
 private Long nss;
 private String nom;
@@ -7,8 +9,15 @@ private String prenom;
 private String photo;
 private String mail;
 private String pwd;
+private ArrayList <Seance> seance ; 
 private int idoperateur;
 
+public ArrayList<Seance> getSeance() {
+	return seance;
+}
+public void setSeance(ArrayList<Seance> seance) {
+	this.seance = seance;
+}
 public int getIdoperateur() {
 	return idoperateur;
 }

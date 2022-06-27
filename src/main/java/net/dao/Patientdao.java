@@ -36,8 +36,8 @@ public class Patientdao {
 	}
 	public int [] ajoutPatient(Patient patient, List <Seance> seance) throws ClassNotFoundException{
 		String sql= "INSERT INTO public.patient(\r\n"
-				+ "	nss, nom, prenom, addresse)\r\n"
-				+ "	VALUES (?, ?, ?, ?);";
+				+ "	nss, nom, prenom, addresse, addresseh)\r\n"
+				+ "	VALUES (?, ?, ?, ?, ?);";
 		String sql2= "INSERT INTO public.seance(\r\n"
 				+ "	titre, type, attente, idpatient, tranche, jour, idchauffeur, etat, date)\r\n"
 				+ "	VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?);";
@@ -56,6 +56,7 @@ public class Patientdao {
 			statement.setString(3,patient.getPrenom());
 			statement.setString(4,patient.getAddresse());
 			statement.setLong(1,patient.getNSS());
+			statement.setString(5,patient.getAddresseh());
 			System.out.println(statement);
 			tab[0]=statement.executeUpdate();
 			int i = 1;
