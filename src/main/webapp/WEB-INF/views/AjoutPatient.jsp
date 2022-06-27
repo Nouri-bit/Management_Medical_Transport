@@ -93,7 +93,6 @@
        <p class="input_span" ><span>Structure sanitaire</span></p>
        <input name="addresseh" type="search" id="place-search-input2" placeholder="Addresse de la structure sanitaire" required>
        
-       
        <p class="input_span" ><span>Date début </span></p>
        <input  name="date" type="date" required> 
          
