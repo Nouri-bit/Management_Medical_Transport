@@ -11,7 +11,15 @@ public class Patient {
 	private String Nom;
 	private String Prenom;
 	private String Addresse;
-	
+	private String addresseh; 
+	public String getAddresseh() {
+		return addresseh;
+	}
+
+	public void setAddresseh(String addresseh) {
+		this.addresseh = addresseh;
+	}
+
 	public Long getNSS() {
 		return NSS;
 	}

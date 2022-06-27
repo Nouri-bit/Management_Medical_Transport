@@ -26,6 +26,7 @@ public class ChauffeurServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		List<Chauffeur> liste = new ArrayList<Chauffeur>();
 		try {
+			
 			liste= ch.liste_chauffeurs();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

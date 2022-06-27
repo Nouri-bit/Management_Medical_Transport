@@ -56,6 +56,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String Nom=request.getParameter("nom");
+		String addresseh=request.getParameter("addresseh");
 		String Prenom=request.getParameter("prenom");
 		String Addresse=request.getParameter("addresse");
 		//int idChauffeur=Integer.parseInt(request.getParameter("idchauffeur"));
@@ -74,6 +75,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		
 		Patient patient=new Patient();	
 		patient.setNom(Nom);
+		patient.setAddresseh(addresseh);
 		patient.setPrenom(Prenom);
 		patient.setAddresse(Addresse);
 		//patient.setIdChauffeur(idChauffeur);

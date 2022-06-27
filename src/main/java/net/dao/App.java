@@ -59,10 +59,19 @@ public class App {
                 }
                 //Close the scanner
                 scanner.close();
-
+                double pi = 3.1415/180;
                 //System.out.println(informationString);
-
-
+                double distance = 6371*Math.acos((Math.sin(40.69196*pi)*Math.sin(40.65651*pi))+ ((Math.cos(40.65651*pi)*Math.cos(40.69196*pi)*(Math.cos((-89.48181+76.09676)*pi))))) ;
+                System.out.println(Math.sin(51)*Math.sin(51)+ (Math.cos(51)*Math.cos(51)*(Math.cos(1))));
+                System.out.println(Math.sqrt((51*51)+(1)));
+                System.out.println(Math.acos(Math.sin(51)*Math.sin(51)+ (Math.cos(51)*Math.cos(51)*(Math.cos(1)))));
+                System.out.println(Math.acos(0.99993968));
+               
+                //double cossin= Math.cos(51*pi);
+                
+                System.out.println("la distance "+distance);
+                //System.out.println("sin "+Math.sin(51*pi));
+              //  System.out.println("cos "+Math.cos(1*pi));
                 //JSON simple library Setup with Maven is used to convert strings to JSON
                 JSONParser parse = new JSONParser();
                 JSONObject dataObject = (JSONObject) parse.parse(String.valueOf(informationString));
@@ -105,6 +114,7 @@ public class App {
                    String Y = ((ArrayList) dataObject2.get("distance")).toArray()[1].toString();
                     double XX =	 new Double(X);
                     double YY =	 new Double(Y);
+                    System.out.println(Math.sqrt(2));
                     System.out.println(Math.sqrt((XX*XX)+(YY*YY)));
                     //System.out.println()
                     //JSONObject  dd= (JSONObject) ((ArrayList) dataObject2.get("d istance")).toArray()[0];

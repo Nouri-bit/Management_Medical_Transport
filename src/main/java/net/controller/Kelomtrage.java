@@ -44,12 +44,16 @@ public class Kelomtrage extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Float kmreel=Float.parseFloat(req.getParameter("kmreel"));
-		System.out.println(req.getParameter("idseance"));
+		Long idpatient=Long.parseLong(req.getParameter("idpatient"));
+		Long idchauffeur=Long.parseLong(req.getParameter("idchauffeur"));
+		//System.out.println(req.getParameter("idseance"));
 		int idseance=Integer.parseInt(req.getParameter("idseance"));
 		Seance ss = new Seance();
-		System.out.println(kmreel);
-		System.out.println(idseance);
+		//System.out.println(kmreel);
+		//System.out.println(idseance);
 		ss.setKmreel(kmreel);
+		ss.setIdpatient(idpatient);
+		ss.setIdchauffeur(idchauffeur);
 		ss.setIdseance(idseance);
 		try {
 			S.ajoutkilometrage(ss);

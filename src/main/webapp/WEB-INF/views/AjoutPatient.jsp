@@ -89,15 +89,19 @@
        <p class="input_span" ><span>Prénom</span></p>
        <input name="prenom" type="text" required maxlength="25">
        <p class="input_span" ><span>Addresse complète</span></p>
+<<<<<<< HEAD
        <input name="Addresse" type="search" id="place-search-input" placeholder="Entrer une addresse" required>
        <p class="input_span" ><span>Structure sanitaire</span></p>
        <input name="addresseh" type="search" id="place-search-input2" placeholder="Addresse de la structure sanitaire" required>
        
+=======
+       <input name="addresse" type="search" id="place-search-input" placeholder="Entrer une addresse" required>
+>>>>>>> branch 'master' of https://github.com/Nouri-bit/2cs_18.git
        <p class="input_span" ><span>Date début </span></p>
        <input  name="date" type="date" required> 
          
     </div>
-    <p class="input_span"><span>Numéro de sécurité social</span></p>
+    <p class="input_span"><span>Les jours : </span></p>
     <dev class="container">
       <div class="column">
           <div class="card">
@@ -110,7 +114,7 @@
                 <label 	>Dimache</label>
               </div>
               <div class="checkbox">
-                <input type="checkbox" id='lundi' value="Lundi" name="jour" onclick="clickCheck(this);"/>
+                <input type="checkbox" id='lundi' value="lundi" name="jour" onclick="clickCheck(this);"/>
                 <label 	>Lundi</label>
              </div>
           </div>
@@ -118,11 +122,11 @@
       <div class="column">
         <div class="card">
             <div class="checkbox">
-              <input type="checkbox" id='Mardi' value="Mardi" name="jour" onclick="clickCheck(this);"/> 
+              <input type="checkbox" id='mardi' value="mardi" name="jour" onclick="clickCheck(this);"/> 
               <label 	>Mardi</label>
             </div>
             <div class="checkbox">
-              <input type="checkbox" id='Vendredi' value="Vendredi" name="jour" onclick="clickCheck(this);"/>
+              <input type="checkbox" id='mercredi' value="mercredi" name="jour" onclick="clickCheck(this);"/>
               <label 	>Mercredi</label>
             </div>
         </div>
@@ -130,11 +134,11 @@
       <div class="column">
         <div class="card">
             <div class="checkbox">
-              <input type="checkbox" id='Jeudi' value="Jeudi" name="jour" onclick="clickCheck(this);"/> 
+              <input type="checkbox" id='jeudi' value="jeudi" name="jour" onclick="clickCheck(this);"/> 
               <label 	>Jeudi</label>
             </div>
             <div class="checkbox">
-              <input type="checkbox" id='Vendredi' value="Vendredi" name="jour" onclick="clickCheck(this);"/> <label for="Vendredi"> 
+              <input type="checkbox" id='vendredi' value="vendredi" name="jour" onclick="clickCheck(this);"/> <label for="Vendredi"> 
               <label >Vendredi</label>
             </div>
         </div>

@@ -13,12 +13,14 @@
 <body>
 
 <%@ include file="topnav.jsp" %>
-<div class="main">
+<form action="<%= request.getContextPath() %>/ProfileServlet" method="get">
+<div class="main" >
 <div class="wrapper">
+
     <div class="left">
         <img src="https://i.imgur.com/cMy8V5j.png" 
         alt="user" width="100">
-        <h4>Ben Aissa Kamal</h4>
+        <h4 >${nom} ${prenom}</h4>
          <p>Chauffeur</P>
     </div>
     <div class="right">
@@ -27,11 +29,11 @@
             <div class="info_data">
                  <div class="data">
                    <h4>Numéro de sécurité social</h4>
-                    <p>0001213998761</p>
+                    <p>${nss}</p>
               </div>
               <div class="data">
                 <h4>Adresse Mail</h4>
-                <p>kl_benaissa@gmail.com</p>
+                <p>${mail}</p>
              </div>
     
             </div>
@@ -42,14 +44,14 @@
             <div class="projects_data">
                  
                  <div class="data">
-                   <h4>Type de véhicule</h4>
-                    <p>Ambilance</p>
+                  
               </div>
             </div>
         </div>
     </div>
+  
 </div>
 </div>
-
+</form>
 </body>
 </html>
