@@ -41,7 +41,7 @@ public int ajoutkilometrage(Seance A) throws ClassNotFoundException{
 		 		+ "	FROM public.\"chauffeur \" ch, public.\"operateur\" o\r\n"
 		 		+ "    where ch.nss=? and ch.idoperateur= o.idoperateur \r\n"
 		 		+ "    ;";
-		 String sql2="    SELECT  addresse\r\n"
+		 String sql2="    SELECT  addresse, addresseh\r\n"
 		 		+ "        FROM public.\"patient\"\r\n"
 		 		+ "        where nss=? \r\n"
 		 		+ "        ;";
@@ -54,8 +54,10 @@ public int ajoutkilometrage(Seance A) throws ClassNotFoundException{
 			if(rs1.next() && rs11.next()) {
 				String addrch= rs1.getString("addresse").replace(' ', '%');
 				String addrpa= rs11.getString("addresse").replace(' ', '%');
+				String addrpah= rs11.getString("addresseh").replace(' ', '%');
 				System.out.println(rs1.getString("addresse"));
 				System.out.println(rs11.getString("addresse"));
+				System.out.println(rs11.getString("addresseh"));
 				///////////////// @ chauffeur
 	                    URL url = new URL("http://www.mapquestapi.com/geocoding/v1/address?key=5rbG94EZ1CBfSDepJwvayTwiYOG5Fgm9&location="+addrch);
                          System.out.println(url);
@@ -115,9 +117,34 @@ public int ajoutkilometrage(Seance A) throws ClassNotFoundException{
 	                            JSONObject e3 = (JSONObject) d3.get("displayLatLng");
 	                            System.out.println(e3.get("lng"));
 	                            System.out.println(e3.get("lat"));
+	                    ////////////////////////////////// strcuture sanitaire ////////////////////////////////
+	                            URL url33 = new URL("http://www.mapquestapi.com/geocoding/v1/address?key=5rbG94EZ1CBfSDepJwvayTwiYOG5Fgm9&location="+addrpah);
+
+		                        HttpURLConnection conn33 = (HttpURLConnection) url33.openConnection();
+		                        conn33.setRequestMethod("GET");
+		                        conn33.connect();
+		                            StringBuilder informationString33 = new StringBuilder();
+		                            Scanner scanner33 = new Scanner(url33.openStream());
+
+		                            while (scanner33.hasNext()) {
+		                                informationString33.append(scanner33.nextLine());
+		                            }
+		                            //Close the scanner  33
+		                            scanner33.close();
+		                            JSONParser parse33 = new JSONParser();
+		                            JSONObject dataObject33 = (JSONObject) parse33.parse(String.valueOf(informationString33));
+		                            JSONObject c33= (JSONObject) ((ArrayList) dataObject33.get("results")).toArray()[0];
+		                            JSONObject  d33= (JSONObject) ((ArrayList) c33.get("locations")).toArray()[0];
+		                            JSONObject e33 = (JSONObject) d33.get("displayLatLng");
+		                            System.out.println(e33.get("lng"));
+		                            System.out.println(e33.get("lat"));
 	                    ///////////////////////////////calcul de la distance //////////////////////////////////
 	                            double pi = 3.1415/180;
-	                            double distance = 6371*Math.acos(((Math.sin((Double) e3.get("lat")*pi))*(Math.sin((Double) e.get("lat")*pi)))+ ((Math.cos(((Double) e3.get("lat"))*pi))*(Math.cos(((Double) e.get("lat"))*pi))*(Math.cos(pi*(((Double) e3.get("lng"))-((Double) e.get("lng"))))))) ;
+	                            double dis1 =  6371*Math.acos(((Math.sin((Double) e3.get("lat")*pi))*(Math.sin((Double) e33.get("lat")*pi)))+ ((Math.cos(((Double) e3.get("lat"))*pi))*(Math.cos(((Double) e33.get("lat"))*pi))*(Math.cos(pi*(((Double) e3.get("lng"))-((Double) e33.get("lng")))))));
+	                            double distance1 = 6371*Math.acos(((Math.sin((Double) e3.get("lat")*pi))*(Math.sin((Double) e.get("lat")*pi)))+ ((Math.cos(((Double) e3.get("lat"))*pi))*(Math.cos(((Double) e.get("lat"))*pi))*(Math.cos(pi*(((Double) e3.get("lng"))-((Double) e.get("lng"))))))) ;
+	                           double distance = dis1+distance1;
+	                           System.out.println(dis1);
+	                           System.out.println(distance1);
 	                            System.out.println(distance);
 	                            ///////////////////////////////////////////////////////////
 	                   if(((A.getKmreel()<distance) || (distance-A.getKmreel()<10.0)) && (distance-A.getKmreel() >=0.0)  ) {
