@@ -89,14 +89,7 @@
        <p class="input_span" ><span>Prénom</span></p>
        <input name="prenom" type="text" required maxlength="25">
        <p class="input_span" ><span>Addresse complète</span></p>
-<<<<<<< HEAD
        <input name="Addresse" type="search" id="place-search-input" placeholder="Entrer une addresse" required>
-       <p class="input_span" ><span>Structure sanitaire</span></p>
-       <input name="addresseh" type="search" id="place-search-input2" placeholder="Addresse de la structure sanitaire" required>
-       
-=======
-       <input name="addresse" type="search" id="place-search-input" placeholder="Entrer une addresse" required>
->>>>>>> branch 'master' of https://github.com/Nouri-bit/2cs_18.git
        <p class="input_span" ><span>Date début </span></p>
        <input  name="date" type="date" required> 
          
