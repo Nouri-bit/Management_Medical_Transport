@@ -30,19 +30,32 @@
                 <h2>${compte.titre}</h2>
                  <p>${compte.date}</p>
                  <p>${compte.idpatient}</p>
+                 <p>${compte.duree}</p>
                 
                  <p>${compte.etat}</p>
             
                     <input type="hidden" name="idseance" value="${compte.idseance}">
-                    
-                <c:if test="${compte.attente==true && compte.durée==0.0}">
+                    <input type="hidden" name="idpatient" value="${compte.idpatient}">
+                    <input type="hidden"  name="idchauffeur" value="${compte.idchauffeur}">
+                 
+                
+                <c:if test="${compte.kmreel== 0.0 }">
+                
+                <c:if test="${compte.attente==true && compte.duree==0.0}">
                 	<p >Durée d'attente </p>
-                	<input type="text" name="durée" />
+                	<input type="text" name="duree"  />
+                	<input type="hidden" name="idseance" value="${compte.idseance}">
+                    <input type="hidden" name="idpatient" value="${compte.idpatient}">
+                    <input type="hidden"  name="idchauffeur" value="${compte.idchauffeur}">
+                  
                 </c:if>
-                <c:if test="${compte.kmreel==0.0 }">
                     <p >Distance </p>
                 	<input type="text" name="kmreel" />
                 	<button id="btn">Ajouter Km</button>
+                	<input type="hidden" name="duree" value="${compte.duree}">
+                	<input type="hidden" name="idseance" value="${compte.idseance}">
+                    <input type="hidden" name="idpatient" value="${compte.idpatient}">
+                    <input type="hidden"  name="idchauffeur" value="${compte.idchauffeur}">
                 </c:if>
                  
                 

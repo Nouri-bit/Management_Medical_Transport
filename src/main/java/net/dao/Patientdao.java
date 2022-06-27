@@ -39,8 +39,8 @@ public class Patientdao {
 				+ "	nss, nom, prenom, addresse, addresseh)\r\n"
 				+ "	VALUES (?, ?, ?, ?, ?);";
 		String sql2= "INSERT INTO public.seance(\r\n"
-				+ "	titre, type, attente, idpatient, tranche, jour, idchauffeur, etat, date)\r\n"
-				+ "	VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+				+ "	titre, type, attente, idpatient, tranche, jour, idchauffeur, etat, date, duree)\r\n"
+				+ "	VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 		
 		String sqql= "SELECT idoperateur,addresse\r\n"
 				+ "	FROM public.operateur;";
@@ -71,6 +71,7 @@ public class Patientdao {
 					statement2.setString(6,Sa.getJour());
 					statement2.setString(8,"Non valide");
 					statement2.setLong(4,patient.getNSS());
+					statement2.setString(10,"0.0");
 					String test = getDayStringOld(Sa.getDate() , new  Locale("fr"));
 					System.out.println(test); 
 					System.out.println(Sa.getJour()); 

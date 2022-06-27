@@ -44,6 +44,7 @@ public class Kelomtrage extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Float kmreel=Float.parseFloat(req.getParameter("kmreel"));
+		Float duree=Float.parseFloat(req.getParameter("duree"));
 		Long idpatient=Long.parseLong(req.getParameter("idpatient"));
 		Long idchauffeur=Long.parseLong(req.getParameter("idchauffeur"));
 		//System.out.println(req.getParameter("idseance"));
@@ -52,6 +53,7 @@ public class Kelomtrage extends HttpServlet {
 		//System.out.println(kmreel);
 		//System.out.println(idseance);
 		ss.setKmreel(kmreel);
+		ss.setDuree(duree);
 		ss.setIdpatient(idpatient);
 		ss.setIdchauffeur(idchauffeur);
 		ss.setIdseance(idseance);

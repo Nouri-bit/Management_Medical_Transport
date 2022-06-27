@@ -12,6 +12,7 @@ public void setIdseance(int idseance) {
 }
 private String titre;
 private int type;
+private float duree;
 private int tranche; 
 private boolean attente;
 private Long idpatient;
@@ -21,7 +22,14 @@ private Date date;
 private double distance; 
 private Long idchauffeur;
 private String etat; 
-private double montant; 
+private double montant;
+
+public float getDuree() {
+	return duree;
+}
+public void setDuree(float duree) {
+	this.duree = duree;
+}
 public double getMontant() {
 	return montant;
 }

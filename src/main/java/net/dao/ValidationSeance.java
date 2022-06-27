@@ -28,12 +28,13 @@ public int ajoutkilometrage(Seance A) throws ClassNotFoundException{
 		Connection connection= DriverManager.getConnection("jdbc:postgresql://localhost:5433/2cs_project_18","postgres", "20001999");
 		
 		String sqlll = "UPDATE public.seance\r\n"
-				+ "	SET kmreel=? \r\n"
+				+ "	SET kmreel=?, duree=?  \r\n"
 				+ "	 where idseance=?;";
 	 
 		PreparedStatement statement2=connection.prepareStatement(sqlll);
 		statement2.setFloat(1,A.getKmreel());
-		statement2.setFloat(2,A.getIdseance());
+		statement2.setFloat(2,A.getDuree());
+		statement2.setFloat(3,A.getIdseance());
 		statement2.executeUpdate();
 		
 	    System.out.println(statement2); 
@@ -321,7 +322,15 @@ public double donner_distance(Seance A) throws ClassNotFoundException{
 		                            System.out.println(e33.get("lat"));
 	                    ///////////////////////////////calcul de la distance //////////////////////////////////
 	                            double pi = 3.1415/180;
-	                            double dis1 =  6371*Math.acos(((Math.sin((Double) e3.get("lat")*pi))*(Math.sin((Double) e33.get("lat")*pi)))+ ((Math.cos(((Double) e3.get("lat"))*pi))*(Math.cos(((Double) e33.get("lat"))*pi))*(Math.cos(pi*(((Double) e3.get("lng"))-((Double) e33.get("lng")))))));
+	                            double dis1=0;
+	                            if((A.isAttente())==true) {
+	                            	 dis1 =  6371*Math.acos(((Math.sin((Double) e3.get("lat")*pi))*(Math.sin((Double) e33.get("lat")*pi)))+ ((Math.cos(((Double) e3.get("lat"))*pi))*(Math.cos(((Double) e33.get("lat"))*pi))*(Math.cos(pi*(((Double) e3.get("lng"))-((Double) e33.get("lng")))))));
+	  	                             dis1=dis1*2;
+	                            }
+	                            else {
+	                            	 dis1 =  6371*Math.acos(((Math.sin((Double) e3.get("lat")*pi))*(Math.sin((Double) e33.get("lat")*pi)))+ ((Math.cos(((Double) e3.get("lat"))*pi))*(Math.cos(((Double) e33.get("lat"))*pi))*(Math.cos(pi*(((Double) e3.get("lng"))-((Double) e33.get("lng")))))));
+	  	              
+	                            }
 	                            double distance1 = 6371*Math.acos(((Math.sin((Double) e3.get("lat")*pi))*(Math.sin((Double) e.get("lat")*pi)))+ ((Math.cos(((Double) e3.get("lat"))*pi))*(Math.cos(((Double) e.get("lat"))*pi))*(Math.cos(pi*(((Double) e3.get("lng"))-((Double) e.get("lng"))))))) ;
 	                           distance = dis1+distance1;
 	                           System.out.println(dis1);
@@ -341,7 +350,7 @@ public double donner_distance(Seance A) throws ClassNotFoundException{
 public List<Seance> liste_seances_non_valid() throws ClassNotFoundException{
 	ArrayList<Seance> users= new ArrayList<Seance>();
 
-	String sql = "SELECT idseance, titre, type, attente, idpatient, tranche, kmreel, jour, idchauffeur, etat, date\r\n"
+	String sql = "SELECT idseance, titre, type, attente, idpatient, tranche, kmreel, jour, idchauffeur, etat, date, duree\r\n"
 			+ "	FROM public.seance\r\n"
 			+ "    where etat='Non valide' and kmreel>0.0;"; 
 	Class.forName("org.postgresql.Driver")	;
@@ -358,6 +367,7 @@ public List<Seance> liste_seances_non_valid() throws ClassNotFoundException{
 			A.setIdpatient(t.getLong("idpatient"));
 		     A.setIdseance(t.getInt("idseance"));
 			A.setType(t.getInt("type"));
+			A.setDuree(Float.valueOf(t.getString("duree")));
 			A.setAttente(t.getBoolean("attente"));
 			distance= donner_distance(A);
 			System.out.println(distance);
@@ -387,7 +397,7 @@ public List<Seance> liste_seances() throws ClassNotFoundException{
 		
 		ArrayList<Seance> users= new ArrayList<Seance>();
 		
-		String sql = "SELECT idseance, titre, type, attente, idpatient, tranche, kmreel, jour, idchauffeur, etat, date\r\n"
+		String sql = "SELECT idseance, titre, type, attente, idpatient, tranche, kmreel, jour, idchauffeur, etat, date, duree\r\n"
 				+ "	FROM public.seance;"; 
 		Class.forName("org.postgresql.Driver")	;
 		try {
@@ -404,7 +414,7 @@ public List<Seance> liste_seances() throws ClassNotFoundException{
 			     A.setIdseance(t.getInt("idseance"));
 				A.setType(t.getInt("type"));
 				A.setAttente(t.getBoolean("attente"));
-				
+				A.setDuree(Float.valueOf(t.getString("duree")));
 				A.setTranche(t.getInt("tranche"));
 				A.setKmreel(t.getFloat("kmreel"));
 				A.setJour(t.getString("jour"));
