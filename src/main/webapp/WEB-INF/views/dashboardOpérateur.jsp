@@ -10,7 +10,7 @@
 <title>page d'acceuil</title>
 </head>
 <body>
- <%@ include file="topnav.jsp" %>
+ <%@ include file="topnavOpérateur.jsp" %>
 
     
     <div class="row">
