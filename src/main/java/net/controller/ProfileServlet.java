@@ -18,7 +18,7 @@ import net.model.Chauffeur;
 /**
  * Servlet implementation class ProfileServlet
  */
-@WebServlet("/ProfileServlet")
+@WebServlet("/Profile")
 public class ProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
