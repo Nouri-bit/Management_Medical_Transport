@@ -18,8 +18,16 @@ private Long idpatient;
 private String  jour;
 private float kmreel;
 private Date date;
+private double distance; 
 private Long idchauffeur;
 private String etat; 
+
+public double getDistance() {
+	return distance;
+}
+public void setDistance(double distance2) {
+	this.distance = distance2;
+}
 public Seance() {
 	super();
 }
