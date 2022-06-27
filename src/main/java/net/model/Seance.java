@@ -21,7 +21,13 @@ private Date date;
 private double distance; 
 private Long idchauffeur;
 private String etat; 
-
+private double montant; 
+public double getMontant() {
+	return montant;
+}
+public void setMontant(double montant) {
+	this.montant = montant;
+}
 public double getDistance() {
 	return distance;
 }
