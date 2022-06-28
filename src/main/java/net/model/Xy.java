@@ -4,6 +4,21 @@ public class Xy {
 	private int idxy; 
 	private float x; 
 	private float y;
+	private String distination;
+	private Seance idseance; 
+	
+	public Seance getIdseance() {
+		return idseance;
+	}
+	public void setIdseance(Seance idseance) {
+		this.idseance = idseance;
+	}
+	public String getDistination() {
+		return distination;
+	}
+	public void setDistination(String distination) {
+		this.distination = distination;
+	}
 	public int getIdxy() {
 		return idxy;
 	}

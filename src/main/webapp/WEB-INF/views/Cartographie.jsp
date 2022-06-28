@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,8 @@ z-index: 10;}
 
  <%@ include file="topnav.jsp" %>
  <div id="googleMap" style="width:100%;height:800px;"></div>
-<form action="<%= request.getContextPath() %>/ChauffeurServlet" method="get">
+<form action="<%= request.getContextPath() %>/Cartographie" method="get">
+<c:forEach items="${products}" var="compte">
 <script>
 function myMap() {
 var mapProp= {
@@ -30,24 +32,20 @@ var mapProp= {
   zoom:15,
 };
 var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
-const myLatLng = { lat: 36.752887, lng: 3.042048 };
-const myLatLng2 = { lat: 36.752887, lng: 3 };
-const myLatLng3 = { lat: 36.752888, lng: 3.004 };
+const myLatLng = { lat: ${compte.x}, lng: ${compte.y}};
 const contentString =
     '<div id="content">' +
     '<div id="siteNotice">' +
     "</div>" +
-    '<h1 id="firstHeading" class="firstHeading">Chauffeur</h1>' +
+    '<h1 id="firstHeading" class="firstHeading">${compte.idseance.idchauffeur}</h1>' +
     '<div id="bodyContent">' +
-    "<p><b>patient: </b> Name </p> " +
-    "<p><b>destination: </b> Hopitale </p>" +
+    "<p><b>patient: </b>${compte.idseance.idpatient}</p> " +
+    "<p><b>destination: </b>${compte.distination}</p>" +
     "</div>" +
     "</div>";
   const infowindow = new google.maps.InfoWindow({
     content: contentString,
   });
-
   marker = new google.maps.Marker({
     position: myLatLng,
     map,
@@ -60,23 +58,13 @@ const contentString =
       map,
       shouldFocus: false,
     });});
-    /* ______________________ */ 
-  new google.maps.Marker({
-    position: myLatLng2,
-    map,
-    title: "Hello",
-    icon:'ambulance.png',
-  });
-  new google.maps.Marker({
-    position: myLatLng3,
-    map,
-    title: "Hello",
-    icon:'ambulance.png',
-  });
+  
 }
 </script>
-</form>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGR_HXyljWdIP4waW2IbgF1cKgAPnet8A&callback=myMap"></script>
+</c:forEach>
+</form>
+
 
   <%@ include file="bottomnav.jsp" %>
   

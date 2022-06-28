@@ -48,7 +48,7 @@
                 <td>${ce.kmreel}</td>
                 <td>${ce.type}</td>
                 <td>${ce.attente}</td>
-                <td>20</td>
+                <td>${ce.montant}</td>
               </tr>
             </c:forEach>  
           </tbody>
@@ -57,7 +57,7 @@
             <thead>
               <tr>
                 <th>Total</th>
-                <th>5 670 000,00 </th>
+                <th>${compte.total}</th>
               </tr>
             </thead>
           </table>
