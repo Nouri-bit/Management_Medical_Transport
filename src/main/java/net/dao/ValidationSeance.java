@@ -393,6 +393,52 @@ public List<Seance> liste_seances_non_valid() throws ClassNotFoundException{
 	};
 	return users;
 }
+public List<Seance> liste_seances_tous() throws ClassNotFoundException{
+	ArrayList<Seance> users= new ArrayList<Seance>();
+
+	String sql = "SELECT idseance, titre, type, attente, idpatient, tranche, kmreel, jour, idchauffeur, etat, date, duree\r\n"
+			+ "	FROM public.seance\r\n"
+			+ "    where kmreel>0.0;"; 
+	Class.forName("org.postgresql.Driver")	;
+	try {
+		Connection connection= DriverManager.getConnection("jdbc:postgresql://localhost:5433/2cs_project_18","postgres", "20001999");
+		PreparedStatement statement=connection.prepareStatement(sql);
+		ResultSet t=statement.executeQuery();
+		double distance =0;
+		 while(t.next()) {
+			// t.getResultList();
+			Seance A= new Seance();
+			A.settitre(t.getString("titre"));
+			A.setIdchauffeur(t.getLong("idchauffeur"));
+			A.setIdpatient(t.getLong("idpatient"));
+		     A.setIdseance(t.getInt("idseance"));
+			A.setType(t.getInt("type"));
+			A.setDuree(Float.valueOf(t.getString("duree")));
+			A.setAttente(t.getBoolean("attente"));
+			distance= donner_distance(A);
+			System.out.println(distance);
+			int d = (int)distance;
+			A.setDistance(d);
+			A.setTranche(t.getInt("tranche"));
+			A.setKmreel(t.getFloat("kmreel"));
+			A.setJour(t.getString("jour"));
+			A.setEtat(t.getString("etat"));
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
+			A.setDate(simpleDateFormat.parse(t.getString("date")));
+			
+			
+			users.add(A);
+			
+		 }
+		 
+			
+	}
+
+	catch(Exception e){
+		e.printStackTrace();
+	};
+	return users;
+}
 public List<Seance> liste_seances() throws ClassNotFoundException{
 		
 		ArrayList<Seance> users= new ArrayList<Seance>();
@@ -404,7 +450,7 @@ public List<Seance> liste_seances() throws ClassNotFoundException{
 			Connection connection= DriverManager.getConnection("jdbc:postgresql://localhost:5433/2cs_project_18","postgres", "20001999");
 			PreparedStatement statement=connection.prepareStatement(sql);
 			ResultSet t=statement.executeQuery();
-			double distance = 0; 
+			double distance = 0; 	
 			 while(t.next()) {
 				// t.getResultList();
 				Seance A= new Seance();
