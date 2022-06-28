@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import net.dao.login;
 import net.model.Agent;
 
@@ -49,8 +51,12 @@ public class Login_servlet extends HttpServlet {
  			if (tab==5)
  			{
  				//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/Ajoutpatient.jsp").dispatcher.forward(request, response);
+ 				
  				request.getSession();
+ 				HttpSession session = request.getSession();
  				request.getRequestDispatcher("/WEB-INF/views/AjoutPatient.jsp").forward(request, response);
+ 				session.setAttribute("sessionUtilisateur", "adminstrator");
+ 	 			
  			}
  			else {
  				request.setAttribute("errorMessage", "Invalid Credentials!");
