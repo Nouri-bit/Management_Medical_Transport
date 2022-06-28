@@ -19,12 +19,12 @@
         <div class="topbox" >
           <img class="icon" src="pec.png" alt="icon" width="50px">
           <h4 id="nb_pec">1</h4>
-          Prise en charge
+          Km non ajoutées
         </div>
         <div class="topbox" >
-          <img class="icon" src="warning.png" alt="icon" width="50px">
-          <h4 id="nb_reclam">8</h4>
-          reclamations
+          <img class="icon" src="pec.png" alt="icon" width="50px">
+          <h4 id="nb_patients">8</h4>
+          Nombre des patients 
         </div>
         <div class="topbox">
           <img class="icon" src="bell.png" alt="icon" width="50px">
@@ -135,36 +135,7 @@
           </script>
   
               </div>
-  
-      <div class="sidebox">
-        <canvas id="demChart" style="width:100%;max-width:600px ; min-width: 400px;"></canvas>
-        <script>
-        var xValues = ["scannées", "non scannées"];
-        var yValues = [0, 10];
-        var barColors = [
-          "#b91d47",
-          "#00aba9"
-        ];
-  
-        new Chart("demChart", {
-          type: "doughnut",
-          data: {
-            labels: xValues,
-            datasets: [{
-              backgroundColor: barColors,
-              data: yValues
-            }]
-          },
-          options: {
-            title: {
-              display: true,
-              text: "Les prises en charge du mois"
-            }
-          }
-        });
-        </script>
-  
-      </div>
+
       
     </div>
     </div>

@@ -8,13 +8,12 @@
         <i class="fa fa-bars"></i>
     </label>
     <ul >
-       <li><a href='#'>Liste des séances </a></li>
+       <li><a href='Kelomtrage'>Liste des séances </a></li>
        <li><a href='Cartographie'>Cartographie</a></li>
-       <li><a href='#'>Remboursements</a></li>
-        <li><a href='ChauffeurServlet'>list des chauffeurs</a></li>
+       <li><a href='Remboursement'>Remboursements</a></li>
     </ul> 
     <div class="logo_cnas">
-        <a href=""><img src="https://elhanaa.cnas.dz/resources/images/cnasfond.png" width="50px" /></a>
+        <a href="DashboardOperateur"><img src="https://elhanaa.cnas.dz/resources/images/cnasfond.png" width="50px" /></a>
     </div>
     <div class="socialtop">
         <div class='top-social'>

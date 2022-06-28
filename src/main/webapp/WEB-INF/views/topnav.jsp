@@ -9,14 +9,14 @@
     </label>
     <ul >
        <li><a href='AjoutPatient'>Ajouter une demande</a></li>
-       <li><a href='#'>Tableau des écarts</a></li>
-       <li><a href='#'>Liste des séances </a></li>
+       <li><a href='ValidManuelServlet'>Valider les écarts</a></li>
+       <li><a href='kelometrage'>Liste des séances </a></li>
        <li><a href='Cartographie'>Cartographie</a></li>
-       <li><a href='#'>Remboursements</a></li>
+       <li><a href='Remboursement'>Remboursements</a></li>
         <li><a href='ChauffeurServlet'>list des chauffeurs</a></li>
     </ul> 
     <div class="logo_cnas">
-        <a href=""><img src="https://elhanaa.cnas.dz/resources/images/cnasfond.png" width="50px" /></a>
+        <a href="dashboard"><img src="https://elhanaa.cnas.dz/resources/images/cnasfond.png" width="50px" /></a>
     </div>
     <div class="socialtop">
         <div class='top-social'>
