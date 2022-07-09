@@ -11,29 +11,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.dao.ValidationSeance;
-import net.model.Seance;
+import net.dao.Cartho;
+import net.model.Chauffeur;
+import net.model.Xy;
 
 /**
- * Servlet implementation class EcartServlet
+ * Servlet implementation class Cartographie
  */
-@WebServlet("/EcartServlet")
-public class EcartServlet extends HttpServlet {
+@WebServlet("/CartOperateur")
+public class cartOperateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	ValidationSeance S = new ValidationSeance();
+    Cartho ch = new Cartho();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Seance> liste = new ArrayList<Seance>();
+		
+		List<Xy> liste = new ArrayList<Xy>();
 		try {
-			liste= S.liste_seances_tous();
+			
+			liste= ch.tracking();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		request.setAttribute("products", liste);
-		
-        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/ecart.jsp");
+		 
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/cartOperateur.jsp");
         view.forward(request, response);
 	}
+
+	
 
 }

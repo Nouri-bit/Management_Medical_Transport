@@ -13,24 +13,24 @@
 
 </head>
 <body>
-
-<h1>SÃ©ances non ValidÃ©es</h1>
+<%@ include file="topnav.jsp" %>
+<h1>Séances non Validées</h1>
 <div class="main">
 <c:forEach items="${products}" var="compte">
 <form action="<%= request.getContextPath() %>/ValidManuelServlet" method="post" >
 <div>
     
-    <div class="sÃ©ance">
+    <div class="séance">
        
         <div>
             <div >
              
                 <h2>${compte.titre}</h2>
-                <p> NSS du chauffeur: ${compte.idchauffeur}</p>
-                 <p>date :${compte.date}</p>
-                 <p > Distance minÃ©male : <b >${compte.distance}</b> km</p>
-                   <p > Etat : <b >${compte.etat}</b> </p>
-                <p > Distance donnÃ©e par l'opÃ©rateur : <b >${compte.kmreel}</b> km</p>
+                <p> <b> NSS du chauffeur:</b> ${compte.idchauffeur}</p>
+                 <p><b> date :</b> ${compte.date}</p>
+                 <p ><b > Distance minimale :</b> ${compte.distance} km</p>
+                   <p ><b> Etat :</b> ${compte.etat} </p>
+                <p > <b > Distance donnée par l'opérateur :</b> ${compte.kmreel} km</p>
                   <input type="hidden" name="idseance" value="${compte.idseance}">
                     <input type="hidden" name="idpatient" value="${compte.idpatient}">
                     <input type="hidden"  name="idchauffeur" value="${compte.idchauffeur}">
@@ -40,8 +40,9 @@
                     <input type="hidden"  name="idchauffeur" value="${compte.idchauffeur}">
                 	<button class="btn" style="background-color:#61da61;">Valider</button> 
                 </c:if>
-                <button class="btn" style="background-color:#e23d3d ;">RÃ©clamer</button>
-                <button class="btn" style="background-color:#0064AC ;">Visualiser sur la map</button>
+                <a href="reclam" class="btn" style="background-color:#e23d3d ;">Réclamer</button>
+                
+                <a href="Cartographie" class="btn" style="background-color:#0064AC ;">Visualiser sur la map</a>
             </div>
         </div>
         <hr style="height:1px;border:none;color:rgb(168, 168, 168);background-color:rgb(168, 168, 168)" />
@@ -54,8 +55,9 @@
  </c:forEach> 
 
  </div>
+ <div class="bottomdiv">
  
- 
+ </div>
 
 </body>
 </html>

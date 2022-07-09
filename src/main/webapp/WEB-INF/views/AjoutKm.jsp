@@ -14,7 +14,7 @@
 
 </head>
 <body>
-<%@ include file="topnav.jsp" %>
+<%@ include file="topnavOpérateur.jsp" %>
 
 <h1>Mes séances</h1>
 <div class="main">
@@ -28,11 +28,12 @@
             <div >
              
                 <h2>${compte.titre}</h2>
-                 <p>${compte.date}</p>
-                 <p>${compte.idpatient}</p>
-                 <p>${compte.duree}</p>
-                
-                 <p>${compte.etat}</p>
+                 <p><b> Date :</b> ${compte.date}</p>
+                 <p><b>NSS patient :</b>${compte.idpatient}</p>
+                 <c:if test="${compte.attente==true && compte.duree!=0.0}">
+                 <p><b>Durée d'attente :</b> ${compte.duree} h</p>
+                 </c:if>
+                 <p><b>Validation :</b> ${compte.etat}</p>
             
                     <input type="hidden" name="idseance" value="${compte.idseance}">
                     <input type="hidden" name="idpatient" value="${compte.idpatient}">
@@ -40,10 +41,10 @@
                  
                 
                 <c:if test="${compte.kmreel== 0.0 }">
-                
+                <br>
                 <c:if test="${compte.attente==true && compte.duree==0.0}">
                 	<p >Durée d'attente </p>
-                	<input type="text" name="duree"  />
+                	<input type="text" name="duree"  /> h
                 	<input type="hidden" name="idseance" value="${compte.idseance}">
                     <input type="hidden" name="idpatient" value="${compte.idpatient}">
                     <input type="hidden"  name="idchauffeur" value="${compte.idchauffeur}">

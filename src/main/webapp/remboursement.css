@@ -4,9 +4,10 @@
 body{
   display: table;
   width: 100%;
-  background: #dedede;
   text-align: center;
   color: #0064AC;
+   background-color: #6EAFC9;
+   font: Roboto;
 }
 *{ 
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -16,7 +17,7 @@ body{
 
 .aa_h2{
   font:100 5rem/1 Roboto;
-  text-transform: uppercase;
+  
 }
 table{
    background: #fff;
@@ -51,9 +52,10 @@ table,thead,tbody,tfoot,tr, td,th{
 }
 .aa_htmlTable{
   background: #fff;
-  width: 50%;
+  width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  border-radius:10px;
 }
 
 .table{
@@ -123,6 +125,7 @@ body{
   button{
     padding: 15px 25px;
     margin-top: 10px;
+    margin-right: 10px;
     border-radius: 5px;
     border:none;
     font-size: 15px;
@@ -133,4 +136,8 @@ body{
     float: right;
   }
   
-
+.bottomdiv{
+	
+	display:block;
+	height:90px;
+}

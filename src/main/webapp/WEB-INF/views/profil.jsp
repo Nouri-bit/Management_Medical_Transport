@@ -18,14 +18,14 @@
 <div class="wrapper">
 
     <div class="left">
-        <img src="https://i.imgur.com/cMy8V5j.png" 
-        alt="user" width="100">
+        <img src="https://img.freepik.com/photos-gratuite/image-profil-jeune-hipster-mode-coiffure-mode-barbe-epaisse-au-gingembre_343059-3602.jpg?t=st=1656411950~exp=1656412550~hmac=f333c0fb3c0e670ff20f629c04d538d1b34c0af92e8a3a49cd5ea1f24686782b&w=740"
+         width="100">
         <h4 >${nom} ${prenom}</h4>
          <p>Chauffeur</P>
     </div>
     <div class="right">
         <div class="info">
-            <h3>Ben Aissa Kamal</h3>
+            <h3>${nom} ${prenom}</h3>
             <div class="info_data">
                  <div class="data">
                    <h4>Numéro de sécurité social</h4>

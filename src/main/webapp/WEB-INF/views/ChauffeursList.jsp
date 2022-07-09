@@ -21,9 +21,9 @@
 </div>
 <div class="cards">
 <c:forEach items="${products}" var="compte">
-<div class="card" style="max-width: 300px;" onclick="location.href='ProfileServlet?nss=${compte.nss}';">
+<div class="card" style="max-width: 300px;" onclick="location.href='Profile?nss=${compte.nss}';">
   
-  <img class="image" src="${compte.photo}" alt="Avatar" style="width:70%">
+  <img class="image" src=${compte.photo}  style="width:80%">
   <div class="container">
     <h4><b>${compte.nom} ${compte.prenom}</b></h4> 
     <p> ${compte.nss}</p>

@@ -21,7 +21,7 @@ z-index: 10;}
 </head>
 <body>
 
- <%@ include file="topnav.jsp" %>
+ <%@ include file="topnavOpérateur.jsp" %>
  <div id="googleMap" style="width:100%;height:800px;"></div>
 
 <script>

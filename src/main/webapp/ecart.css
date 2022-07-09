@@ -1,0 +1,81 @@
+@charset "ISO-8859-1";
+@import "compass/css3";
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,500,300,700,400);
+
+body{
+  display: table;
+  width: 100%;
+  text-align: center;
+  color: #0064AC;
+  margin-top:70px;
+  background-color: #6EAFC9;
+
+}
+
+
+.aa_h2{
+  font:100 5rem/1 Roboto;
+  text-transform: uppercase;
+}
+table{
+   background: #fff;
+}
+table,thead,tbody,tfoot,tr, td,th{
+  text-align: center;
+  margin: auto;
+  border:1px solid #dedede;
+  padding: 1rem;
+}
+.table    { display: table; }
+.tr       { display: table-row;  }
+.thead    { display: table-header-group }
+.tbody    { display: table-row-group }
+.tfoot    { display: table-footer-group }
+.col      { display: table-column }
+.colgroup { display: table-column-group }
+.td, .th   { display: table-cell;}
+.caption  { display: table-caption }
+
+.table,
+.thead,
+.tbody,
+.tfoot,
+.tr,
+.td,
+.th{
+  text-align: center;
+  margin: auto;
+  padding: 1rem;
+}
+.aa_htmlTable{
+  background: #fff;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+}
+
+.table{
+  background: #fff;
+  margin: auto;
+  border:none;
+  padding: 0;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.th{
+  font-weight: 700;
+  border:1px solid #dedede;
+}
+.td{
+  font-weight: 300;
+  border:1px solid #dedede;
+  border-top:none;
+}
+.bottomdiv{
+	
+	display:block;
+	height:90px;
+}
+

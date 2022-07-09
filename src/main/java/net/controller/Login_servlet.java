@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import net.dao.login;
 import net.model.Agent;
+import net.model.Operateur;
 
 /**
  * Servlet implementation class Login_servlet
@@ -42,23 +43,34 @@ public class Login_servlet extends HttpServlet {
 		Long nss=Long.parseLong(request.getParameter("nss"));
 		String pwd=request.getParameter("pwd");
 		Agent agent = new Agent();
+		Operateur agent2 = new Operateur();
+		agent2.setIdoperateur(nss);
+		agent2.setPwd(pwd);
 		agent.setNss(nss);
 		agent.setPwd(pwd);
-		System.out.println("heeeeeeeere ");
+		System.out.println("password and nss are correct!");
 		try {
  			int tab= p.login_agent(agent);
+ 			int tab2= p.login_operateur(agent2);
  			System.out.println(tab);
- 			if (tab==5)
+ 			System.out.println(tab2);
+ 			if (tab==5) 
  			{
- 				//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/Ajoutpatient.jsp").dispatcher.forward(request, response);
  				
  				request.getSession();
  				HttpSession session = request.getSession();
- 				request.getRequestDispatcher("/WEB-INF/views/AjoutPatient.jsp").forward(request, response);
+ 				request.getRequestDispatcher("/WEB-INF/views/dashboard.jsp").forward(request, response);
  				session.setAttribute("sessionUtilisateur", "adminstrator");
  	 			
  			}
+ 			else if (tab2==5) {
+ 				request.getSession();
+ 				HttpSession session = request.getSession();
+ 				request.getRequestDispatcher("/WEB-INF/views/dashboardOperateur.jsp").forward(request, response);
+ 				session.setAttribute("sessionUtilisateur", "adminstrator");
+ 			}
  			else {
+ 				
  				request.setAttribute("errorMessage", "Invalid Credentials!");
  	            request.getRequestDispatcher("/WEB-INF/views/Login.jsp").forward(request, response);
  			}

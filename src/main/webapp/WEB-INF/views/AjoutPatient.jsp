@@ -79,8 +79,21 @@
 </head>
 <body>
  <%@ include file="topnav.jsp" %>
+  <div class="toast">
+  <div class="toast-content">
+      <i class="fas fa-solid fa-check check"></i>
+
+      <div class="message">
+          <span class="text text-1">Succés</span>
+          <span class="text text-2">Le patient à été inséré avec succés</span>
+      </div>
+  </div>
+  <i class="fa-solid fa-xmark close"></i>
+
+  <div class="progress"></div>
+</div>
   
-  <form action="<%= request.getContextPath() %>/AjoutPatient" method="post"> 
+  <form action="<%= request.getContextPath() %>/AjoutPatient" method="post" onsubmit="alert('Demande ajouté!');"> 
     <div class="inputs">
        <p class="input_span"><span>Numéro de sécurité social</span></p>
        <input class="nss" name="nss" type="number" min="100000000000000" max="999999999999999"/>
@@ -95,7 +108,7 @@
        
        
        <p class="input_span" ><span>Date début </span></p>
-       <input  name="date" type="date" required> 
+       <input  name="date" type="text" required value="06-29-2022" > 
          
     </div>
     <p class="input_span"><span>Numéro de sécurité social</span></p>
@@ -217,7 +230,40 @@
 					container: document.querySelector('#place-search-input2')
 					});
 			</script>
+<script>
+  const button = document.querySelector("button"),
+      toast = document.querySelector(".toast")
+      closeIcon = document.querySelector(".close"),
+      progress = document.querySelector(".progress");
 
+      let timer1, timer2;
+
+      button.addEventListener("click", () => {
+        toast.classList.add("active");
+        progress.classList.add("active");
+
+        timer1 = setTimeout(() => {
+            toast.classList.remove("active");
+        }, 5000); //1s = 1000 milliseconds
+
+        timer2 = setTimeout(() => {
+          progress.classList.remove("active");
+        }, 5300);
+      });
+      
+      closeIcon.addEventListener("click", () => {
+        toast.classList.remove("active");
+        
+        setTimeout(() => {
+          progress.classList.remove("active");
+        }, 300);
+
+        clearTimeout(timer1);
+        clearTimeout(timer2);
+      });
+
+</script>
+  
 
    <%@ include file="bottomnav.jsp" %>
   

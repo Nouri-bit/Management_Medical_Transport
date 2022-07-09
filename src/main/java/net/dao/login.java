@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.*;
 import net.model.Agent;
+import net.model.Operateur;
 
 public class login {
 	private static Connection connection = null;
@@ -16,11 +17,14 @@ String sql = "SELECT nss, pwd\r\n"
 		+ "	FROM public.agent\r\n"
 		+ "	where nss=? and pwd=? \r\n"
 		+ "	;";
+String sql2 = "SELECT idoperateur, pwd\r\n"
+		+ "		FROM public.operateur\r\n"
+		+ "		 	where idoperateur=? and pwd=?\r\n"
+		+ "			;";
 Class.forName("org.postgresql.Driver")	;
 try {
 	Connection connection= DriverManager.getConnection("jdbc:postgresql://localhost:5433/2cs_project_18","postgres", "20001999");
 	PreparedStatement statement=connection.prepareStatement(sql);
-	System.out.println(agent.getNss() + " " + agent.getPwd());
 	statement.setLong(1,agent.getNss());
 	statement.setString(2,agent.getPwd());
 	
@@ -68,4 +72,39 @@ return tab;
             }
         }
 	}
+	public int login_operateur(Operateur agent) throws ClassNotFoundException{
+		
+		int tab=0; 
+String sql = "SELECT idoperateur, pwd\r\n"
+		+ "		FROM public.operateur\r\n"
+		+ "		 	where idoperateur=? and pwd=?\r\n"
+		+ "			;";
+Class.forName("org.postgresql.Driver")	;
+try {
+	Connection connection= DriverManager.getConnection("jdbc:postgresql://localhost:5433/2cs_project_18","postgres", "20001999");
+	PreparedStatement statement=connection.prepareStatement(sql);
+	statement.setLong(1,agent.getIdoperateur());
+	statement.setString(2,agent.getPwd());
+	
+	System.out.println(sql);
+	ResultSet t=statement.executeQuery();
+	
+	 if (t.next()) {
+		 System.out.println("truuueee");
+		 tab=5; 
+	 }
+	 else {
+		 System.out.println("false");
+		 tab=1;
+	 }
+	
+}
+
+catch(Exception e){
+	e.printStackTrace();
+};
+
+return tab;
+}
+	
 }

@@ -107,8 +107,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			e1.printStackTrace();
 		}
 		
-         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/Ajoutpatientdetails.jsp");
-  		 dispatcher.forward(request, response);
+        doGet(request, response);
   		  //response.sendRedirect("/WEB-INF/views/Ajoutpatientdetails.jsp");
   		  
 }

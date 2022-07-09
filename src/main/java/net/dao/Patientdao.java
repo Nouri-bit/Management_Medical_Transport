@@ -60,11 +60,12 @@ public class Patientdao {
 			System.out.println(statement);
 			tab[0]=statement.executeUpdate();
 			int i = 1;
-			
+			int l =1;
 		
 			for(Seance Sa : seance) {
 				    PreparedStatement statement2=connection.prepareStatement(sql2);
-					statement2.setString(1, " Le Patient_"+patient.getNom()+"_"+patient.getPrenom()+"_"+patient.getNSS());
+					statement2.setString(1, " Séance "+l); 
+					l++;
 					statement2.setInt(2,Sa.getType());
 					statement2.setBoolean(3, Sa.isAttente());
 					statement2.setInt(5,Sa.getTranche());
@@ -204,7 +205,7 @@ public class Patientdao {
 								preparedStatement2.setInt(2,(int) distances[k][1]);
 								ResultSet rs = preparedStatement1.executeQuery();
 								ResultSet rs2 = preparedStatement2.executeQuery(); 
-								if (k<distances.length){
+								if (k<(distances.length)){
 									if (rs2.next() ){
 										//// cas jdid mais tjr la distance est minimal 
 										

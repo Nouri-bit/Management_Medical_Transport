@@ -31,7 +31,7 @@ public class DashboardOperateur extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.getSession();
-	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/dashboardOpérateur.jsp");
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/dashboardOperateur.jsp");
 		dispatcher.forward(request, response);
 	}
 

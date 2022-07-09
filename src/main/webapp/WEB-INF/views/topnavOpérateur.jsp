@@ -9,8 +9,8 @@
     </label>
     <ul >
        <li><a href='Kelomtrage'>Liste des séances </a></li>
-       <li><a href='Cartographie'>Cartographie</a></li>
-       <li><a href='Remboursement'>Remboursements</a></li>
+       <li><a href='CartOperateur'>Cartographie</a></li>
+       <li><a href='Login_servlet2'>Déconnecter</a></li>
     </ul> 
     <div class="logo_cnas">
         <a href="DashboardOperateur"><img src="https://elhanaa.cnas.dz/resources/images/cnasfond.png" width="50px" /></a>

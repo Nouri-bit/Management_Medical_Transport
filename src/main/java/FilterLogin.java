@@ -51,8 +51,8 @@ public class FilterLogin implements Filter {
             return;
         }
         
-
-        if (session == null || session.getAttribute("sessionUtilisateur") == null) {
+        
+        else if (session == null || session.getAttribute("sessionUtilisateur") == null) {
         	((HttpServletResponse) res).sendRedirect(request.getContextPath() +"/Login_servlet");
         	//response.sendRedirect(request.getContextPath() + "/WEB-INF/views/Login.jsp");
         } else {

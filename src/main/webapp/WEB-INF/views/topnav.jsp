@@ -10,10 +10,10 @@
     <ul >
        <li><a href='AjoutPatient'>Ajouter une demande</a></li>
        <li><a href='ValidManuelServlet'>Valider les écarts</a></li>
-       <li><a href='Kelomtrage'>Liste des séances </a></li>
        <li><a href='Cartographie'>Cartographie</a></li>
        <li><a href='RembourssementServlet'>Remboursements</a></li>
         <li><a href='ChauffeurServlet'>list des chauffeurs</a></li>
+        <li><a href='Login_servlet2'>Deconnecter</a></li>
     </ul> 
     <div class="logo_cnas">
         <a href="dashboard"><img src="https://elhanaa.cnas.dz/resources/images/cnasfond.png" width="50px" /></a>

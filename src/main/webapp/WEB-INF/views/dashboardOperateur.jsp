@@ -75,7 +75,7 @@
             <canvas id="recChart" style="width:100%;max-width:600px ; min-width: 400px;"></canvas>
   
             <script>
-            var xValues = ["traitées", "non traitées"];
+            var xValues = ["non traitées", "traitées"];
             var yValues = [55, 49];
             var barColors = [
               "#b91d47",
